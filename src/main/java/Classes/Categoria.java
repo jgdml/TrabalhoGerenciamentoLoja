@@ -1,3 +1,5 @@
+package Classes;
+
 public class Categoria {
 
     private String nome;
