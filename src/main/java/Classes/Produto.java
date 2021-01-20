@@ -23,7 +23,6 @@ public class Produto {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public String getNome() {
         return nome;
     }
@@ -31,7 +30,6 @@ public class Produto {
     public int getEstoque() {
         return estoque;
     }
-
     public void setEstoque(int estoque) {
         this.estoque = estoque;
     }
@@ -39,7 +37,6 @@ public class Produto {
     public double getPreco() {
         return preco;
     }
-
     public void setPreco(double preco) {
         this.preco = preco;
     }
@@ -47,7 +44,6 @@ public class Produto {
     public Categoria getCategoria() {
         return categoria;
     }
-
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }

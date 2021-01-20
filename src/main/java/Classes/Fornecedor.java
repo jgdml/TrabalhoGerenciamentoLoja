@@ -18,7 +18,6 @@ public class Fornecedor {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -26,7 +25,6 @@ public class Fornecedor {
     public String getDocumento() {
         return documento;
     }
-
     public void setDocumento(String documento) {
         this.documento = documento;
     }
@@ -34,7 +32,6 @@ public class Fornecedor {
     public Cidade getCidade() {
         return cidade;
     }
-
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
@@ -42,7 +39,6 @@ public class Fornecedor {
     public String getTelefone() {
         return telefone;
     }
-
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }

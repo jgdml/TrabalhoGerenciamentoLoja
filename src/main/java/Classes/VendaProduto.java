@@ -19,13 +19,9 @@ public class VendaProduto {
     public Produto getProduto() {
         return produto;
     }
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
+    public void setProduto(Produto produto) {this.produto = produto;}
 
-    public Venda getVenda() {
-        return venda;
-    }
+    public Venda getVenda() {return venda;}
     public void setVenda(Venda venda) {
         this.venda = venda;
     }
