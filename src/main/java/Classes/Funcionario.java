@@ -11,7 +11,7 @@ public class Funcionario {
     private Cidade cidade;
     private Usuario usuario;
 
-    Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario){
+    Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario){
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
