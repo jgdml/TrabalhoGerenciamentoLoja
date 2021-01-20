@@ -203,7 +203,7 @@
     </index>
    </folder>
   </table>
-  <table id="TAB56" populated="true" UUID="a3b6baa8-2b67-48b1-a49f-d77c03d89f3e" name="Classes.Categoria" objectType="TABLE" physicalName="Classes.Categoria" >
+  <table id="TAB56" populated="true" UUID="a3b6baa8-2b67-48b1-a49f-d77c03d89f3e" name="classes.Categoria" objectType="TABLE" physicalName="classes.Categoria" >
    <remarks></remarks>
    <folder id="FOLTAB561" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL57" populated="true" UUID="7523c0db-563e-402a-a7e8-a9426328d601" autoIncrement="false" autoIncrementSequenceName="Categoria_id_categoria_seq" defaultValue="" name="id_categoria" nullable="0" physicalName="id_categoria" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >

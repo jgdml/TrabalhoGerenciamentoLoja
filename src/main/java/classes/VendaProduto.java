@@ -1,28 +1,30 @@
-package Classes;
+package classes;
 
-public class CompraProduto {
-
+public class VendaProduto {
     private Produto produto;
-    private Compra compra;
+    private Venda venda;
     private int quantidade;
     private double preco;
 
-    CompraProduto(Produto produto, Compra compra, int quantidade, double preco){
+
+    VendaProduto(Produto produto, Venda venda, int quantidade, double preco) {
         this.produto = produto;
-        this.compra = compra;
+        this.venda = venda;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
+    ///GETs and SETs
+
     public Produto getProduto() {
         return produto;
     }
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
+    public void setProduto(Produto produto) {this.produto = produto;}
 
-    public Compra getCompra() { return compra; }
-    public void setCompra(Compra compra) { this.compra = compra; }
+    public Venda getVenda() {return venda;}
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
 
     public int getQuantidade() {
         return quantidade;
@@ -37,5 +39,4 @@ public class CompraProduto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-
 }

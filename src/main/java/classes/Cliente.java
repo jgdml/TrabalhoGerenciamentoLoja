@@ -1,29 +1,27 @@
-package Classes;
+package classes;
 
-public class Funcionario {
+public class Cliente {
 
     private String nome;
     private String endereco;
     private String telefone;
     private String email;
     private String cpf;
-    private String cargo;
     private Cidade cidade;
-    private Usuario usuario;
 
-    Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario){
+    Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade){
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
         this.cpf = cpf;
-        this.cargo = cargo;
         this.cidade = cidade;
-        this.usuario = usuario;
     }
 
     ///Gets & Sets
-    public String getNome() {return nome;}
+    public String getNome() {
+        return nome;
+    }
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -49,13 +47,6 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
     public Cidade getCidade() {
         return cidade;
     }
@@ -63,10 +54,4 @@ public class Funcionario {
         this.cidade = cidade;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
 }
