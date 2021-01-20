@@ -9,7 +9,7 @@ public class Venda {
     private Date data;
     private List<Produto> produto;
 
-    Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto;){
+    Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto){
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = data;

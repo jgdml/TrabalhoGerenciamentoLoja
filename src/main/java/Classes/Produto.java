@@ -10,7 +10,7 @@ public class Produto {
     private Categoria categoria;
     private List<Venda> venda;
 
-    Produto(String nome, int estoque, double preco, Categoria categoria, List<Venda> venda;){
+    Produto(String nome, int estoque, double preco, Categoria categoria, List<Venda> venda){
         this.nome = nome;
         this.estoque = estoque;
         this.preco = preco;
