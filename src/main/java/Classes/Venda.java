@@ -1,15 +1,19 @@
 package Classes;
 import java.util.Date;
+import java.util.List;
+
 
 public class Venda {
-    Funcionario funcionario;
-    Cliente cliente;
-    Date data;
+    private Funcionario funcionario;
+    private Cliente cliente;
+    private Date data;
+    private List<Produto> produto;
 
-    Venda(Funcionario funcionario, Cliente cliente, Date data){
+    Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto;){
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = data;
+        this.produto = produto;
     }
 
     ///GETs and SETs
