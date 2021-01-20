@@ -37,4 +37,12 @@ public class Venda {
     public void setData(Date data) {
         this.data = data;
     }
+
+    public List<Produto> getProduto() {
+        return produto;
+    }
+
+    public void setProduto(List<Produto> produto) {
+        this.produto = produto;
+    }
 }
