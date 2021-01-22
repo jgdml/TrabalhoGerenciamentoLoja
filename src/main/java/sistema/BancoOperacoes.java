@@ -27,7 +27,7 @@ public class BancoOperacoes {
             System.out.println("\nOcorreu um erro ao realizar o select\n\n" + err);
         }
 
-        if (mostrarTudo){
+        if (!mostrarTudo){
             for (int i = 0; i < colunas.size(); i++){
 
                 if (colunas.get(i).startsWith("ID_")){
@@ -38,11 +38,13 @@ public class BancoOperacoes {
                 }
             }
         }
-
         return colunas;
     }
 
-    public void atualizarTabela(String tabela, String atributo){
+
+
+
+    public static void atualizarTabela(String tabela, String atributo){
 
         ArrayList<String> coluna = getInfoTabela(tabela,false);
 
@@ -62,51 +64,61 @@ public class BancoOperacoes {
         }
     }
 
-        public void deletearAtributo(String tabela, String dado){
 
-            try{
-                ArrayList<String> nomeTabela = getInfoTabela(tabela, true);
 
-                String sql = String.format("UPDATE %s SET STATUS = \"F\" WHERE ID = %d",tabela, dado );
-                Banco.doUpdate(sql);
 
-            } catch (Exception e) {
-                System.out.println(Constantes.ERRO_BANCO_DADOS);
-            }
+    public void deletearAtributo(String tabela, String dado){
 
+        try{
+            ArrayList<String> nomeTabela = getInfoTabela(tabela, true);
+
+            String sql = String.format("UPDATE %s SET STATUS = \"F\" WHERE ID = %d",tabela, dado );
+            Banco.doUpdate(sql);
+
+        } catch (Exception e) {
+            System.out.println(Constantes.ERRO_BANCO_DADOS);
         }
+
+    }
+
+
 
 
     public static void insertTabela(String tabela){
         ArrayList<String> col = getInfoTabela(tabela, false);
         ArrayList<String> valores = new ArrayList<>();
         String val;
-        String sql = "insert into %s ( ";
+        String sql = String.format("insert into %s (", tabela);
 
        for(int i=0; i<col.size(); i++){
-            if(col.get(i)!= null){
+
+            if(col.get(i) != null){
                 val = Input.get("Digite o "+col.get(i));
                 valores.add(val);
 
-                if(i != 0){
+                if(valores.size() > 1){
                     sql += ",";
                 }
-                sql += val ;
+                sql += col.get(i);
             }
-       }
-       sql += ") values (";
-       System.out.print(sql);
+        }
+        sql += ") values (";
 
 
-        for(int i=0; i<col.size(); i++) {
+
+        for(int i=0; i<valores.size(); i++) {
+
             if(i != 0){
                 sql += ",";
             }
-            sql += valores.get(i);
-        }
-        sql += " ) ";
-        Banco.doUpdate(sql);
+            sql += "'"+valores.get(i)+"'";
 
+        }
+        sql += " )";
+
+        System.out.println(sql);
+
+        Banco.doUpdate(sql);
 
     }
 }
