@@ -42,6 +42,25 @@ public class BancoOperacoes {
         return colunas;
     }
 
+    public void atualizarTabela(String tabela, String atributo){
+
+        ArrayList<String> coluna = getInfoTabela(tabela,false);
+
+        System.out.println(coluna);
+
+        int i;
+
+        for(i= 0; i<coluna.size(); i++){
+
+            System.out.println("Vai querer atualizar essa coluna");
+            String resposta = Input.get("Digite sua resposta sendo S ou N: ");
+
+            if(resposta.equals("S")) {
+
+                Banco.doUpdate("UPDATE"+ tabela+"SET"+atributo);
+            }
+        }
+    }
 
         public void deletearAtributo(Object tabela){
 
