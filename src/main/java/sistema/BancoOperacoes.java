@@ -43,12 +43,16 @@ public class BancoOperacoes {
     }
 
 
-        public void deletearAtributo(Object tabela){
+        public void deletearAtributo(String tabela, String dado){
 
             try{
+                ArrayList<String> nomeTabela = getInfoTabela(tabela, true);
+
+                String sql = String.format("UPDATE %s SET STATUS = \"F\" WHERE ID = %d",tabela, dado );
+                Banco.doUpdate(sql);
 
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(Constantes.ERRO_BANCO_DADOS);
             }
 
         }
