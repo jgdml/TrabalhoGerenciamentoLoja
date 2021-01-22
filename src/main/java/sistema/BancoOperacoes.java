@@ -75,4 +75,40 @@ public class BancoOperacoes {
             }
 
         }
+
+
+    public static void insertTabela(String tabela){
+        ArrayList<String> col = getInfoTabela(tabela, false);
+        ArrayList<String> valores = new ArrayList<>();
+        String val;
+        String sql = "insert into %s ( ";
+
+       for(int i=0; i<col.size(); i++){
+            if(col.get(i)!= null){
+                val = Input.get("Digite o "+col.get(i));
+                valores.add(val);
+
+                if(i != 0){
+                    sql += ",";
+                }
+                sql += val ;
+            }
+       }
+       sql += ") values (";
+       System.out.print(sql);
+
+
+        for(int i=0; i<col.size(); i++) {
+            if(i != 0){
+                sql += ",";
+            }
+            sql += valores.get(i);
+        }
+        sql += " ) ";
+        Banco.doUpdate(sql);
+
+
+    }
 }
+
+//print("Olá Mundo!!!") ---Pra dar Sorte, O Mateus que disse :)---
