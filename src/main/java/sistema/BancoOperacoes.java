@@ -22,4 +22,14 @@ public class BancoOperacoes {
     }
 
 
+
+        public void deletearAtributo(Object tabela){
+
+            try{
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
 }
