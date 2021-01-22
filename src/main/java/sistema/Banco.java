@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Banco {
 
-    final static String ip = "jdbc:mysql://localhost:3306/jdbc?useTimezone=true&serverTimezone=UTC";
+    final static String ip = "jdbc:mysql://localhost:3306/bd?useTimezone=true&serverTimezone=UTC";
     final static String user = "root";
     final static String pass = "password";
 
