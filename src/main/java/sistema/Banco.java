@@ -1,10 +1,7 @@
 package sistema;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.util.ArrayList;
 
 
 public class Banco {
@@ -28,6 +25,17 @@ public class Banco {
         }
     }
 
+
+    public static void desconectar(){
+        try{
+            conn.close();
+        }
+        catch(SQLException err){
+            System.out.println("Erro ao se desconectar" + err);
+        }
+    }
+
+
     public static ResultSet doSelect(String sql){
         ResultSet rs = null;
 
@@ -38,7 +46,18 @@ public class Banco {
         catch(SQLException err){
             System.out.println("\nOcorreu um erro ao realizar o select\n\n" + err);
         }
+
         return rs;
+    }
+
+
+    public static void doUpdate(String sql){
+        try{
+            st.executeUpdate(sql);
+        }
+        catch(SQLException err){
+            System.out.println("\nOcorreu um erro ao realizar a atualizaçao\n\n" + err);
+        }
     }
 }
 
