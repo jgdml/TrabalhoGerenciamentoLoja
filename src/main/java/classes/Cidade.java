@@ -2,7 +2,7 @@ package classes;
 
 public class Cidade {
 
-    private String  nome;
+    private String nome;
     private Estado estado;
 
 
