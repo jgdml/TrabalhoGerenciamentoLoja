@@ -38,6 +38,7 @@ public class BancoOperacoes {
                 }
             }
         }
+
         return colunas;
     }
 
@@ -54,12 +55,14 @@ public class BancoOperacoes {
 
         for(i= 0; i<coluna.size(); i++){
 
-            System.out.println("Vai querer atualizar essa coluna");
+            System.out.println("Vai querer atualizar" + coluna.get(i) + "essa coluna");
             String resposta = Input.get("Digite sua resposta sendo S ou N: ");
 
             if(resposta.equals("S")) {
 
-                Banco.doUpdate("UPDATE"+ tabela+"SET"+atributo);
+                String atributoValor = Input.get("Digite oque voce vai querer colocar no lugar deste atributo: ");
+
+                Banco.doUpdate("UPDATE" + tabela+"SET" + coluna.get(i) + "=" + atributoValor);
             }
         }
     }
