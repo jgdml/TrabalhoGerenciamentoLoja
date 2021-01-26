@@ -1,18 +1,44 @@
 package classes;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Estado {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String nome;
     private String sigla;
 
-    Estado(String nome, String sigla){
+
+
+    @Deprecated
+    public Estado(){}
+
+    public Estado(String nome, String sigla){
         this.nome = nome;
         this.sigla = sigla;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -20,7 +46,8 @@ public class Estado {
     public String getSigla() {
         return sigla;
     }
+
     public void setSigla(String sigla) {
-        sigla = sigla;
+        this.sigla = sigla;
     }
 }
