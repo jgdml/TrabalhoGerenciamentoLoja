@@ -30,9 +30,6 @@ public class Compra {
     private Fornecedor fornecedor;
 
 
-    private List<Produto> produto;
-
-
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
@@ -40,62 +37,10 @@ public class Compra {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-
-
-    public Compra(Date data, Fornecedor fornecedor, List<Produto> produto, Date dt_atualiza, String status) {
+    public Compra(Date data, Fornecedor fornecedor, Date dt_atualiza, String status) {
         this.data = data;
         this.fornecedor = fornecedor;
-        this.produto = produto;
         this.dt_atualiza = dt_atualiza;
         this.status = status;
     }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Fornecedor getFornecedor() {
-        return fornecedor;
-    }
-
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
-    }
-
-    public List<Produto> getProduto() {
-        return produto;
-    }
-
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
-        this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 }

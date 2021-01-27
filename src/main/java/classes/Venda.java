@@ -30,7 +30,6 @@ public class Venda {
     private Cliente cliente;
 
     private Date data;
-    private List<Produto> produto;
 
 
     //Status e Dt de atualização atomática
@@ -40,12 +39,10 @@ public class Venda {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-
-    public Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto, Date dt_atualiza, String status) {
+    public Venda(Funcionario funcionario, Cliente cliente, Date data, Date dt_atualiza, String status) {
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = data;
-        this.produto = produto;
         this.dt_atualiza = dt_atualiza;
         this.status = status;
     }
