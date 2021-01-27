@@ -7,18 +7,19 @@ import java.util.Date;
 
 public class CompraProduto {
 
+    private int quantidade;
+    private double preco;
+
 
     private Produto produto;
     private Compra compra;
-    private int quantidade;
-    private double preco;
 
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
 
-    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    @Column(name="status", columnDefinition = "char(1) default 'T' ")
     private String status;
 
 

@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class Compra {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -19,7 +20,7 @@ public class Compra {
     @Deprecated
     public Compra() {}
 
-    Compra(Date data, Fornecedor fornecedor, List<Produto> produto){
+    public Compra(Date data, Fornecedor fornecedor, List<Produto> produto){
         this.data = data;
         this.fornecedor = fornecedor;
         this.produto = produto;

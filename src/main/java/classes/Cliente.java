@@ -1,30 +1,32 @@
 package classes;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
+
+
+@Entity
 public class Cliente {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
     private String nome;
-    
     private String endereco;
     private String telefone;
     private String email;
     private String cpf;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private Cidade cidade;
 
 
     @Deprecated
     public Cliente() {}
 
-    Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade){
+    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade){
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;

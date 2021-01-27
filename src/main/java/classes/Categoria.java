@@ -2,21 +2,22 @@ package classes;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+
+@Entity
 public class Categoria {
+
+    private String nome;
+    private String descricao;
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nome;
-    private String descricao;
+
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
@@ -24,10 +25,11 @@ public class Categoria {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+
     @Deprecated
     public Categoria() {}
 
-    Categoria(String nome, String descricao){
+    public Categoria(String nome, String descricao){
         this.nome = nome;
         this.descricao = descricao;
     }

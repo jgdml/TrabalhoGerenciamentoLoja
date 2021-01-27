@@ -7,6 +7,9 @@ import java.util.Objects;
 @Entity
 public class Cidade {
 
+    private String nome;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -14,8 +17,6 @@ public class Cidade {
     @ManyToOne
     @JoinColumn(name="estado_id")
     private Estado estado;
-
-    private String nome;
 
 
 
