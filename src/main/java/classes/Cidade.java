@@ -33,7 +33,7 @@ public class Cidade {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,7 +53,8 @@ public class Cidade {
         this.nome = nome;
     }
 
-    //////////////////////////// Hash & Equals e toString
+
+//////////////////////////// Hash & Equals e toString
 
 
     @Override

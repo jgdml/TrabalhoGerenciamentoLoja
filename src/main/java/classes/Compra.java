@@ -1,19 +1,23 @@
 package classes;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Compra {
 
+    private Date data;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Date data;
+
+    @ManyToOne
+    @JoinColumn(name="fornecedor_id")
     private Fornecedor fornecedor;
+
+
     private List<Produto> produto;
 
 
@@ -50,6 +54,13 @@ public class Compra {
         this.produto = produto;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     //////////////////////////// Hash & Equals e toString
 

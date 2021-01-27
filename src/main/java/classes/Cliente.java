@@ -1,9 +1,6 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 
@@ -20,13 +17,16 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="cidade_id")
     private Cidade cidade;
 
 
     @Deprecated
     public Cliente() {}
 
-    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade){
+    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -71,8 +71,23 @@ public class Cliente {
         this.cidade = cidade;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    //////////////////////////// Hash & Equals e toString
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+//////////////////////////// Hash & Equals e toString
 
 
     @Override
