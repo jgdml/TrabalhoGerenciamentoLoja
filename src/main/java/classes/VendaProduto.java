@@ -30,14 +30,16 @@ public class VendaProduto {
     @Deprecated
     public VendaProduto() {}
 
-    VendaProduto(Produto produto, Venda venda, int quantidade, double preco) {
+    public VendaProduto(Produto produto, Venda venda, int quantidade, double preco, Date dt_atualiza, String status) {
         this.produto = produto;
         this.venda = venda;
         this.quantidade = quantidade;
         this.preco = preco;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
-    ///GETs and SETs
+///GETs and SETs
 
     public Produto getProduto() {
         return produto;
@@ -78,4 +80,5 @@ public class VendaProduto {
     public void setStatus(String status) {
         this.status = status;
     }
+
 }
