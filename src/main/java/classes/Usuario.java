@@ -1,10 +1,18 @@
 package classes;
 
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
+@Getter
+@Setter
+
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 
 @Entity
 public class Usuario {
@@ -13,8 +21,8 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String senha;
     private String login;
+    private String senha;
 
 
     //Status e Dt de atualização atomática
@@ -24,67 +32,11 @@ public class Usuario {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    @Deprecated
-    public Usuario() {}
 
-    Usuario(String senha, String login){
-        this.senha = senha;
+    public Usuario(String login, String senha, Date dt_atualiza, String status) {
         this.login = login;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-    public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
         this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
         this.status = status;
     }
-
-
-    //////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return id.equals(usuario.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-
 }

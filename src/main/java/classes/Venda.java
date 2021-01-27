@@ -1,10 +1,18 @@
 package classes;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+@Getter
+@Setter
+
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 
 @Entity
 public class Venda {
@@ -33,9 +41,6 @@ public class Venda {
     private String status;
 
 
-    @Deprecated
-    public Venda() {}
-
     public Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto, Date dt_atualiza, String status) {
         this.funcionario = funcionario;
         this.cliente = cliente;
@@ -44,75 +49,4 @@ public class Venda {
         this.dt_atualiza = dt_atualiza;
         this.status = status;
     }
-
-    ///GETs and SETs
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Date getData() {
-        return data;
-    }
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public List<Produto> getProduto() {
-        return produto;
-    }
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
-        this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
-    //////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Venda venda = (Venda) o;
-        return Objects.equals(id, venda.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-
 }

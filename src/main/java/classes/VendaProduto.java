@@ -1,22 +1,30 @@
 package classes;
 
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
+
+@Getter
+@Setter
+
+@NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 
 @Entity
 @Table(name="VENDA_PRODUTO")
 @IdClass(VendaProdutoId.class)
 public class VendaProduto {
 
+    private int quantidade;
+    private double preco;
+
     @Id
     private Produto produto;
     @Id
     private Venda venda;
-
-    private int quantidade;
-    private double preco;
 
 
     //Status e Dt de atualização atomática
@@ -27,58 +35,12 @@ public class VendaProduto {
     private String status;
 
 
-    @Deprecated
-    public VendaProduto() {}
-
-    public VendaProduto(Produto produto, Venda venda, int quantidade, double preco, Date dt_atualiza, String status) {
+    public VendaProduto(int quantidade, double preco, Produto produto, Venda venda, Date dt_atualiza, String status) {
+        this.quantidade = quantidade;
+        this.preco = preco;
         this.produto = produto;
         this.venda = venda;
-        this.quantidade = quantidade;
-        this.preco = preco;
         this.dt_atualiza = dt_atualiza;
         this.status = status;
     }
-
-///GETs and SETs
-
-    public Produto getProduto() {
-        return produto;
-    }
-    public void setProduto(Produto produto) {this.produto = produto;}
-
-    public Venda getVenda() {return venda;}
-    public void setVenda(Venda venda) {
-        this.venda = venda;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
-        this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 }
