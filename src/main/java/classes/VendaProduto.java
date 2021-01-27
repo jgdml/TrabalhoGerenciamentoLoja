@@ -1,11 +1,25 @@
 package classes;
 
+import org.hibernate.annotations.ColumnDefault;
+
+import javax.persistence.Column;
+import java.util.Date;
+
 public class VendaProduto {
+
+
     private Produto produto;
     private Venda venda;
     private int quantidade;
     private double preco;
 
+
+    //Status e Dt de atualização atomática
+    @ColumnDefault( value = "CURRENT_TIMESTAMP" )
+    private Date dt_atualiza;
+
+    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    private String status;
 
     VendaProduto(Produto produto, Venda venda, int quantidade, double preco) {
         this.produto = produto;
@@ -38,5 +52,21 @@ public class VendaProduto {
     }
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public Date getDt_atualiza() {
+        return dt_atualiza;
+    }
+
+    public void setDt_atualiza(Date dt_atualiza) {
+        this.dt_atualiza = dt_atualiza;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

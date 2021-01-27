@@ -1,9 +1,9 @@
 package classes;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.ColumnDefault;
+
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Estado {
@@ -14,7 +14,6 @@ public class Estado {
 
     private String nome;
     private String sigla;
-
 
 
     @Deprecated

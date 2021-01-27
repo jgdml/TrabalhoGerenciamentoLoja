@@ -1,9 +1,15 @@
 package classes;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
 
 public class Compra {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private Date data;
     private Fornecedor fornecedor;
     private List<Produto> produto;

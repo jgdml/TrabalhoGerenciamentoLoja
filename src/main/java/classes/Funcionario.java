@@ -1,6 +1,16 @@
 package classes;
 
+import org.hibernate.annotations.ColumnDefault;
+
+import javax.persistence.*;
+import java.util.Date;
+
 public class Funcionario {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String nome;
     private String endereco;
@@ -8,8 +18,18 @@ public class Funcionario {
     private String email;
     private String cpf;
     private String cargo;
+    @ManyToOne
+    @JoinColumn(name="cidade_id")
     private Cidade cidade;
     private Usuario usuario;
+
+    //Status e Dt de atualização atomática
+    @ColumnDefault( value = "CURRENT_TIMESTAMP" )
+    private Date dt_atualiza;
+
+    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    private String status;
+
 
     Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario){
         this.nome = nome;
@@ -68,5 +88,37 @@ public class Funcionario {
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDt_atualiza() {
+        return dt_atualiza;
+    }
+
+    public void setDt_atualiza(Date dt_atualiza) {
+        this.dt_atualiza = dt_atualiza;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

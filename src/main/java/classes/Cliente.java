@@ -1,8 +1,18 @@
 package classes;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Cliente {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private String nome;
+    
     private String endereco;
     private String telefone;
     private String email;
