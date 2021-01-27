@@ -34,10 +34,12 @@ public class Compra {
     @Deprecated
     public Compra() {}
 
-    public Compra(Date data, Fornecedor fornecedor, List<Produto> produto){
+    public Compra(Date data, Fornecedor fornecedor, List<Produto> produto, Date dt_atualiza, String status) {
         this.data = data;
         this.fornecedor = fornecedor;
         this.produto = produto;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     public Date getData() {
