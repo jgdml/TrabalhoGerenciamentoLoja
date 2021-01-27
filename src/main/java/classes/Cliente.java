@@ -1,12 +1,19 @@
 package classes;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 
 @Entity
 public class Cliente {
@@ -34,9 +41,6 @@ public class Cliente {
     private String status;
 
 
-    @Deprecated
-    public Cliente() {}
-
     public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade, Date dt_atualiza, String status) {
         this.nome = nome;
         this.endereco = endereco;
@@ -48,89 +52,9 @@ public class Cliente {
         this.status = status;
     }
 
-    ///Gets & Sets
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public String getEndereco() {
-        return endereco;
-    }
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public Cidade getCidade() {
-        return cidade;
-    }
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
-        this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    //////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+//    @Override
+//    public int hashCode() {return getClass().hashCode();}
 
     @Override
     public String toString() {

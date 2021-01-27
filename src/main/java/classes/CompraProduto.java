@@ -1,12 +1,22 @@
 package classes;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
 
-@Entity
+
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
+
+//@Entity
 public class CompraProduto {
 
     private int quantidade;
@@ -25,53 +35,12 @@ public class CompraProduto {
     private String status;
 
 
-    @Deprecated
-    public CompraProduto() {}
-
-    CompraProduto(Produto produto, Compra compra, int quantidade, double preco){
+    public CompraProduto(int quantidade, double preco, Produto produto, Compra compra, Date dt_atualiza, String status) {
+        this.quantidade = quantidade;
+        this.preco = preco;
         this.produto = produto;
         this.compra = compra;
-        this.quantidade = quantidade;
-        this.preco = preco;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
-    public Compra getCompra() { return compra; }
-    public void setCompra(Compra compra) { this.compra = compra; }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-    public void setPreco(double preco) {
-        this.preco = preco;
-    }
-
-    public Date getDt_atualiza() {
-        return dt_atualiza;
-    }
-
-    public void setDt_atualiza(Date dt_atualiza) {
         this.dt_atualiza = dt_atualiza;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
         this.status = status;
     }
 }

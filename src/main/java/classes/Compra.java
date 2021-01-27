@@ -1,10 +1,20 @@
 package classes;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 
 @Entity
 public class Compra {
@@ -31,8 +41,6 @@ public class Compra {
     private String status;
 
 
-    @Deprecated
-    public Compra() {}
 
     public Compra(Date data, Fornecedor fornecedor, List<Produto> produto, Date dt_atualiza, String status) {
         this.data = data;
@@ -88,22 +96,6 @@ public class Compra {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    //////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Compra compra = (Compra) o;
-        return id.equals(compra.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
     }
 
 }

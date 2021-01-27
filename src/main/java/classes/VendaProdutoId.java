@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import java.util.Objects;
 
-@Entity
 public class VendaProdutoId {
 
     @JoinColumn(name="produto_id")
