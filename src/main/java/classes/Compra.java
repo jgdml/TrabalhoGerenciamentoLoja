@@ -74,6 +74,22 @@ public class Compra {
         this.id = id;
     }
 
+    public Date getDt_atualiza() {
+        return dt_atualiza;
+    }
+
+    public void setDt_atualiza(Date dt_atualiza) {
+        this.dt_atualiza = dt_atualiza;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     //////////////////////////// Hash & Equals e toString
 
 

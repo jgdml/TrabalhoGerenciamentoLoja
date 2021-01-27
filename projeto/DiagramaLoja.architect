@@ -203,7 +203,7 @@
     </index>
    </folder>
   </table>
-  <table id="TAB56" populated="true" UUID="a3b6baa8-2b67-48b1-a49f-d77c03d89f3e" name="classes.Categoria" objectType="TABLE" physicalName="classes.Categoria" >
+  <table id="TAB56" populated="true" UUID="a3b6baa8-2b67-48b1-a49f-d77c03d89f3e" name="Categoria" objectType="TABLE" physicalName="Categoria" >
    <remarks></remarks>
    <folder id="FOLTAB561" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL57" populated="true" UUID="7523c0db-563e-402a-a7e8-a9426328d601" autoIncrement="false" autoIncrementSequenceName="Categoria_id_categoria_seq" defaultValue="" name="id_categoria" nullable="0" physicalName="id_categoria" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -215,10 +215,10 @@
     <column id="COL59" populated="true" UUID="a06f8a57-e7fa-49cb-8fe1-52ac578ad043" autoIncrement="false" autoIncrementSequenceName="Categoria_descricao_seq" defaultValue="" name="descricao" nullable="0" physicalName="descricao" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL60" populated="true" UUID="c089487c-effc-4866-b9f2-20087336abf5" autoIncrement="false" autoIncrementSequenceName="Funcionario_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="1" referenceCount="1" scale="0" source-column-ref="COL11" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL60" populated="true" UUID="c089487c-effc-4866-b9f2-20087336abf5" autoIncrement="false" autoIncrementSequenceName="Categoria_status_seq" defaultValue="" name="status" nullable="0" physicalName="status" precision="1" referenceCount="1" scale="0" source-column-ref="COL11" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL61" populated="true" UUID="4ac26e48-e872-4db9-a150-b436ac6346c1" autoIncrement="false" autoIncrementSequenceName="Funcionario_dt_atualiza_seq" defaultValue="" name="dt_atualiza" nullable="0" physicalName="dt_atualiza" precision="0" referenceCount="1" scale="0" source-column-ref="COL12" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
+    <column id="COL61" populated="true" UUID="4ac26e48-e872-4db9-a150-b436ac6346c1" autoIncrement="false" autoIncrementSequenceName="Categoria_dt_atualiza_seq" defaultValue="" name="dt_atualiza" nullable="0" physicalName="dt_atualiza" precision="0" referenceCount="1" scale="0" source-column-ref="COL12" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
     </folder>
