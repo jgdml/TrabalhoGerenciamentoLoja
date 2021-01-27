@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Produto {
 
@@ -95,5 +96,27 @@ public class Produto {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+
+    //////////////////////////// Hash & Equals e toString
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produto produto = (Produto) o;
+        return id.equals(produto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 }

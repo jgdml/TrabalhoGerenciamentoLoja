@@ -3,6 +3,7 @@ package classes;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 public class Cliente {
 
@@ -62,6 +63,28 @@ public class Cliente {
     }
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+
+
+    //////////////////////////// Hash & Equals e toString
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(id, cliente.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 
 }

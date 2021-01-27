@@ -4,6 +4,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class Estado {
@@ -48,5 +49,26 @@ public class Estado {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+    //////////////////////////// Hash & Equals e toString
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Estado estado = (Estado) o;
+        return Objects.equals(id, estado.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 }

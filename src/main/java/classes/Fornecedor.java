@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.Objects;
 
 public class Fornecedor {
 
@@ -85,5 +86,26 @@ public class Fornecedor {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    //////////////////////////// Hash & Equals e toString
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fornecedor that = (Fornecedor) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 }
