@@ -1,14 +1,19 @@
 package classes;
 
-import javax.persistence.*;
-import java.util.Objects;
+import lombok.*;
 
+import javax.persistence.*;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 
 @Entity
 public class Cidade {
 
     private String nome;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,60 +23,8 @@ public class Cidade {
     @JoinColumn(name="estado_id")
     private Estado estado;
 
-
-
-    @Deprecated
-    public Cidade() {}
-
-    public Cidade(String nome) {
+    public Cidade(String nome, Estado estado) {
         this.nome = nome;
-    }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
         this.estado = estado;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
-//////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cidade cidade = (Cidade) o;
-        return Objects.equals(id, cidade.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return this.nome;
     }
 }
