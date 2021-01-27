@@ -5,6 +5,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Funcionario {
 
 
@@ -27,7 +28,7 @@ public class Funcionario {
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
 
-    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
     @Deprecated

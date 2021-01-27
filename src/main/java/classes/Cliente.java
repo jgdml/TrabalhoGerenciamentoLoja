@@ -1,6 +1,9 @@
 package classes;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -23,16 +26,26 @@ public class Cliente {
     private Cidade cidade;
 
 
+    //Status e Dt de atualização atomática
+    @ColumnDefault( value = "CURRENT_TIMESTAMP" )
+    private Date dt_atualiza;
+
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
+    private String status;
+
+
     @Deprecated
     public Cliente() {}
 
-    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade) {
+    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade, Date dt_atualiza, String status) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
         this.cpf = cpf;
         this.cidade = cidade;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     ///Gets & Sets

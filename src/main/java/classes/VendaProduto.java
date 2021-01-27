@@ -3,8 +3,10 @@ package classes;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
 public class VendaProduto {
 
 
@@ -18,7 +20,7 @@ public class VendaProduto {
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
 
-    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
 

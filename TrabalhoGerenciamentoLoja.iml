@@ -17,7 +17,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
-    <orderEntry type="library" name="org.hsqldb:hsqldb:2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate 5.4.11-5.4.11" level="project" />
+    <orderEntry type="library" exported="" name="org.hsqldb:hsqldb:2.5.1" level="project" />
   </component>
 </module>

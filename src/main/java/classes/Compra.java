@@ -1,4 +1,6 @@
 package classes;
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,14 @@ public class Compra {
 
 
     private List<Produto> produto;
+
+
+    //Status e Dt de atualização atomática
+    @ColumnDefault( value = "CURRENT_TIMESTAMP" )
+    private Date dt_atualiza;
+
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
+    private String status;
 
 
     @Deprecated

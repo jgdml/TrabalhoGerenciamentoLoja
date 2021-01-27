@@ -22,7 +22,7 @@ public class Categoria {
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
 
-    @Column(name="status",  columnDefinition = "char(1) default 'T' ")
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
 
