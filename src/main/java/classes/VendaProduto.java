@@ -2,16 +2,19 @@ package classes;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name="VENDA_PRODUTO")
+@IdClass(VendaProdutoId.class)
 public class VendaProduto {
 
-
+    @Id
     private Produto produto;
+    @Id
     private Venda venda;
+
     private int quantidade;
     private double preco;
 

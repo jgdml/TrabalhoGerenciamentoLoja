@@ -22,6 +22,9 @@ public class Funcionario {
     @ManyToOne
     @JoinColumn(name="cidade_id")
     private Cidade cidade;
+
+    @OneToOne
+    @JoinColumn(name="usuario_id")
     private Usuario usuario;
 
     //Status e Dt de atualização atomática
@@ -35,7 +38,7 @@ public class Funcionario {
     public Funcionario() {}
 
 
-    Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario){
+    public Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario, Date dt_atualiza, String status) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -44,6 +47,8 @@ public class Funcionario {
         this.cargo = cargo;
         this.cidade = cidade;
         this.usuario = usuario;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     ///Gets & Sets
