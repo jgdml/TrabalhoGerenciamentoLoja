@@ -12,8 +12,15 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="funcionario_id")
     private Funcionario funcionario;
+
+    @ManyToOne
+    @JoinColumn(name="cliente_id")
     private Cliente cliente;
+
     private Date data;
     private List<Produto> produto;
 
@@ -25,14 +32,17 @@ public class Venda {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
+
     @Deprecated
     public Venda() {}
 
-    Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto){
+    public Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto, Date dt_atualiza, String status) {
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = data;
         this.produto = produto;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     ///GETs and SETs
