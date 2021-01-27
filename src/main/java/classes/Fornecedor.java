@@ -28,6 +28,10 @@ public class Fornecedor {
     private String status;
 
 
+
+    @Deprecated
+    public Fornecedor() {}
+
     Fornecedor(String nome, String telefone, String documento, Cidade cidade){
         this.nome = nome;
         this.telefone = telefone;

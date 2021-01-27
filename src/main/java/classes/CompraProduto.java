@@ -21,6 +21,10 @@ public class CompraProduto {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+
+    @Deprecated
+    public CompraProduto() {}
+
     CompraProduto(Produto produto, Compra compra, int quantidade, double preco){
         this.produto = produto;
         this.compra = compra;

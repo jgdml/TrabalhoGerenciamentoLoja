@@ -15,6 +15,10 @@ public class Compra {
     private Fornecedor fornecedor;
     private List<Produto> produto;
 
+
+    @Deprecated
+    public Compra() {}
+
     Compra(Date data, Fornecedor fornecedor, List<Produto> produto){
         this.data = data;
         this.fornecedor = fornecedor;

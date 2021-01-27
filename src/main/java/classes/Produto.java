@@ -29,6 +29,9 @@ public class Produto {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+    @Deprecated
+    public Produto() {}
+
     Produto(String nome, int estoque, double preco, Categoria categoria, List<Venda> venda){
         this.nome = nome;
         this.estoque = estoque;

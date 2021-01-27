@@ -20,6 +20,10 @@ public class Cliente {
     private String cpf;
     private Cidade cidade;
 
+
+    @Deprecated
+    public Cliente() {}
+
     Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade){
         this.nome = nome;
         this.endereco = endereco;

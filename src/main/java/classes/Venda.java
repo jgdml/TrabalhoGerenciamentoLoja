@@ -28,6 +28,9 @@ public class Venda {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+    @Deprecated
+    public Venda() {}
+
     Venda(Funcionario funcionario, Cliente cliente, Date data, List<Produto> produto){
         this.funcionario = funcionario;
         this.cliente = cliente;

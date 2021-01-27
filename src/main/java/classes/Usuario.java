@@ -25,6 +25,9 @@ public class Usuario {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+    @Deprecated
+    public Usuario() {}
+
     Usuario(String senha, String login){
         this.senha = senha;
         this.login = login;

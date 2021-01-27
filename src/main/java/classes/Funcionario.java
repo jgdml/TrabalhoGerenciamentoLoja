@@ -30,6 +30,9 @@ public class Funcionario {
     @Column(name="status",  columnDefinition = "char(1) default 'T' ")
     private String status;
 
+    @Deprecated
+    public Funcionario() {}
+
 
     Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario){
         this.nome = nome;
