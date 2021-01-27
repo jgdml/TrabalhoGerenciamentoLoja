@@ -2,24 +2,26 @@ package classes;
 
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 
+
+@Entity
 public class Produto {
+
+    private String nome;
+    private int estoque;
+    private double preco;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nome;
-    private int estoque;
-    private double preco;
+
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
     private Categoria categoria;
-    private List<Venda> venda;
+
 
 
     //Status e Dt de atualização atomática
@@ -32,26 +34,29 @@ public class Produto {
     @Deprecated
     public Produto() {}
 
-    Produto(String nome, int estoque, double preco, Categoria categoria, List<Venda> venda){
+    public Produto(String nome, int estoque, double preco, Categoria categoria, Date dt_atualiza, String status) {
         this.nome = nome;
         this.estoque = estoque;
         this.preco = preco;
         this.categoria = categoria;
-        this.venda = venda;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     ///GETs and SETs
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
     public String getNome() {
         return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getEstoque() {
         return estoque;
     }
+
     public void setEstoque(int estoque) {
         this.estoque = estoque;
     }
@@ -59,22 +64,9 @@ public class Produto {
     public double getPreco() {
         return preco;
     }
+
     public void setPreco(double preco) {
         this.preco = preco;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public List<Venda> getVenda() {
-        return venda;
-    }
-    public void setVenda(List<Venda> venda) {
-        this.venda = venda;
     }
 
     public Integer getId() {
@@ -83,6 +75,14 @@ public class Produto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public Date getDt_atualiza() {
