@@ -18,4 +18,4 @@ Deve ser feito um software de gerenciamento de loja com:
 - [ ] Controle básico de vendas
 - [x] Nada 
 
-**Programação e testes feitos com ```IntelliJ IDEA```, ```Hibernate```, ```SQL Power Architect```, ```MYSQL Workbench``` e ```XAMPP```. Branchs e códigos gravados em repositório ```GitHub```**
+**Programação e testes feitos com ```IntelliJ IDEA```, ```Hibernate```, ```HSQLDB```, ```SQL Power Architect```, e ```XAMPP```. Branchs e códigos gravados em repositório ```GitHub```**
