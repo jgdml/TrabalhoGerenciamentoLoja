@@ -16,6 +16,9 @@ public class Fornecedor {
     private String nome;
     private String telefone;
     private String documento;
+
+    @ManyToOne
+    @JoinColumn(name="cidade_id")
     private Cidade cidade;
 
     //Status e Dt de atualização atomática
@@ -30,12 +33,13 @@ public class Fornecedor {
     @Deprecated
     public Fornecedor() {}
 
-    Fornecedor(String nome, String telefone, String documento, Cidade cidade){
+    public Fornecedor(String nome, String telefone, String documento, Cidade cidade, Date dt_atualiza, String status) {
         this.nome = nome;
         this.telefone = telefone;
         this.documento = documento;
-
         this.cidade = cidade;
+        this.dt_atualiza = dt_atualiza;
+        this.status = status;
     }
 
     public String getNome() {
@@ -89,6 +93,8 @@ public class Fornecedor {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
 
     //////////////////////////// Hash & Equals e toString
 
