@@ -8,6 +8,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.util.Date;
 
 
@@ -16,14 +18,17 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode
 
-//@Entity
+@Entity
+@IdClass(CompraProdutoId.class)
 public class CompraProduto {
 
     private int quantidade;
     private double preco;
 
 
+    @Id
     private Produto produto;
+    @Id
     private Compra compra;
 
 

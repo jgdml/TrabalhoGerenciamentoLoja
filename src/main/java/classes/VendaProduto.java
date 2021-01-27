@@ -14,7 +14,6 @@ import java.util.Date;
 @ToString
 
 @Entity
-@Table(name="VENDA_PRODUTO")
 @IdClass(VendaProdutoId.class)
 public class VendaProduto {
 
