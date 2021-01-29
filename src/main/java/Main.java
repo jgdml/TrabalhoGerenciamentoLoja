@@ -10,7 +10,9 @@ public class Main {
 
         DaoGenerico<Categoria> dc = new DaoGenerico<>();
 
-        dc.save(cat);
+        dc.salvar(cat);
+
+
 
         System.out.println(dc.findId(Categoria.class, 1).getNome());
 

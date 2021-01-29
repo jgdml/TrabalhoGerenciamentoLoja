@@ -23,6 +23,10 @@ public class Cidade implements BaseEntity{
     @JoinColumn(name="estado_id")
     private Estado estado;
 
+
+    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
+    private String status;
+
     public Cidade(String nome, Estado estado) {
         this.nome = nome;
         this.estado = estado;
