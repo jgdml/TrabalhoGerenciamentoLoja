@@ -1,6 +1,7 @@
 package sistema;
 
 import java.util.Scanner;
+import static java.lang.Double.parseDouble;
 
 public class Input {
 
@@ -17,5 +18,13 @@ public class Input {
         System.out.println(msg);
         return Integer.parseInt(scan.nextLine());
     }
+
+    public static double getDouble(String msg){
+
+        System.out.println(msg);
+        return parseDouble(scan.nextLine());
+    }
+
+
 
 }
