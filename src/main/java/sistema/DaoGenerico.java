@@ -1,8 +1,7 @@
 package sistema;
 
 import modelo.BaseEntity;
-import org.hibernate.sql.Delete;
-import sistema.EMFProducer;
+
 
 import javax.persistence.EntityManager;
 
@@ -13,11 +12,6 @@ public class DaoGenerico<T extends BaseEntity> {
         return em.find(cl, id);
     }
 
-    public void salvar(T cl) {
-        em.getTransaction().begin();
-        em.merge(cl);
-        em.getTransaction().commit();
-    }
 
     public void salvarOuAtualizar(T obj) {
         try {
@@ -32,6 +26,7 @@ public class DaoGenerico<T extends BaseEntity> {
             em.getTransaction().rollback();
         }
     }
+
 
     public void deletar(T obj) {
 

@@ -1,20 +1,13 @@
-
 import modelo.Categoria;
 import sistema.DaoGenerico;
+
+import testes.Inserts;
 
 public class Main {
 
     public static void main(String[] args){
 
-        Categoria cat = new Categoria("cat1", "desc1");
-
-        DaoGenerico<Categoria> dc = new DaoGenerico<>();
-
-        dc.salvar(cat);
-
-
-
-        System.out.println(dc.findId(Categoria.class, 1).getNome());
+        Inserts.init();
 
     }
 }
