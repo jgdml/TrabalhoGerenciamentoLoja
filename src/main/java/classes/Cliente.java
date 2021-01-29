@@ -41,15 +41,13 @@ public class Cliente {
     private String status;
 
 
-    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade, Date dt_atualiza, String status) {
+    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
         this.cpf = cpf;
         this.cidade = cidade;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 
 

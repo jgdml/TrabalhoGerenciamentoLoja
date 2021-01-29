@@ -34,12 +34,10 @@ public class VendaProduto {
     private String status;
 
 
-    public VendaProduto(int quantidade, double preco, Produto produto, Venda venda, Date dt_atualiza, String status) {
+    public VendaProduto(int quantidade, double preco, Produto produto, Venda venda) {
         this.quantidade = quantidade;
         this.preco = preco;
         this.produto = produto;
         this.venda = venda;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

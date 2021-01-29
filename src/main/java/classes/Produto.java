@@ -39,12 +39,10 @@ public class Produto {
     private String status;
 
 
-    public Produto(String nome, int estoque, double preco, Categoria categoria, Date dt_atualiza, String status) {
+    public Produto(String nome, int estoque, double preco, Categoria categoria) {
         this.nome = nome;
         this.estoque = estoque;
         this.preco = preco;
         this.categoria = categoria;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

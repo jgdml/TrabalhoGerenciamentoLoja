@@ -43,7 +43,7 @@ public class Funcionario {
     private String status;
 
 
-    public Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario, Date dt_atualiza, String status) {
+    public Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -52,7 +52,5 @@ public class Funcionario {
         this.cargo = cargo;
         this.cidade = cidade;
         this.usuario = usuario;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

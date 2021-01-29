@@ -18,13 +18,13 @@ import java.util.Objects;
 @Entity
 public class Fornecedor {
 
+    private String nome;
+    private String telefone;
+    private String documento;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nome;
-    private String telefone;
-    private String documento;
 
     @ManyToOne
     @JoinColumn(name="cidade_id")
@@ -38,12 +38,10 @@ public class Fornecedor {
     private String status;
 
 
-    public Fornecedor(String nome, String telefone, String documento, Cidade cidade, Date dt_atualiza, String status) {
+    public Fornecedor(String nome, String telefone, String documento, Cidade cidade) {
         this.nome = nome;
         this.telefone = telefone;
         this.documento = documento;
         this.cidade = cidade;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

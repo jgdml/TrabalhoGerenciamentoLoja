@@ -1,9 +1,6 @@
 package classes;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -33,11 +30,9 @@ public class Categoria {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Categoria(String nome, String descricao, Date dt_atualiza, String status) {
+    public Categoria(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 
     //////////////////////////// Hash & Equals e toString

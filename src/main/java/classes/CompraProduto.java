@@ -40,12 +40,10 @@ public class CompraProduto {
     private String status;
 
 
-    public CompraProduto(int quantidade, double preco, Produto produto, Compra compra, Date dt_atualiza, String status) {
+    public CompraProduto(int quantidade, double preco, Produto produto, Compra compra) {
         this.quantidade = quantidade;
         this.preco = preco;
         this.produto = produto;
         this.compra = compra;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

@@ -17,12 +17,12 @@ import java.util.Date;
 @Entity
 public class Usuario {
 
+    private String login;
+    private String senha;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String login;
-    private String senha;
 
 
     //Status e Dt de atualização atomática
@@ -33,10 +33,8 @@ public class Usuario {
     private String status;
 
 
-    public Usuario(String login, String senha, Date dt_atualiza, String status) {
+    public Usuario(String login, String senha) {
         this.login = login;
         this.senha = senha;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

@@ -17,6 +17,8 @@ import java.util.Objects;
 @Entity
 public class Venda {
 
+    private Date data;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -29,8 +31,6 @@ public class Venda {
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
 
-    private Date data;
-
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
@@ -39,11 +39,9 @@ public class Venda {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Venda(Funcionario funcionario, Cliente cliente, Date data, Date dt_atualiza, String status) {
+    public Venda(Funcionario funcionario, Cliente cliente, Date data) {
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = data;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
     }
 }

@@ -37,10 +37,9 @@ public class Compra {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Compra(Date data, Fornecedor fornecedor, Date dt_atualiza, String status) {
+    public Compra(Date data, Fornecedor fornecedor) {
         this.data = data;
         this.fornecedor = fornecedor;
-        this.dt_atualiza = dt_atualiza;
-        this.status = status;
+
     }
 }
