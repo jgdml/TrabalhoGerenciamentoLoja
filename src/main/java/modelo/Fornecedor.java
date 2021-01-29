@@ -15,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 
 @Entity
-public class Fornecedor {
+public class Fornecedor implements BaseEntity{
 
     private String nome;
     private String telefone;

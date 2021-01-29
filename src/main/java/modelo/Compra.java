@@ -15,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode
 
 @Entity
-public class Compra {
+public class Compra implements BaseEntity{
 
     private Date data;
 

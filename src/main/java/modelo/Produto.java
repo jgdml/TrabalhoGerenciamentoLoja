@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString
 
 @Entity
-public class Produto {
+public class Produto implements BaseEntity{
 
     private String nome;
     private int estoque;

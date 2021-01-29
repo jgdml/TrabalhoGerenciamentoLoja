@@ -15,7 +15,7 @@ import java.util.Date;
 @ToString
 
 @Entity
-public class Usuario {
+public class Usuario implements BaseEntity{
 
     private String login;
     private String senha;

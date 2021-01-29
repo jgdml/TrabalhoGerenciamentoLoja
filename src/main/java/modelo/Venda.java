@@ -13,7 +13,7 @@ import java.util.Date;
 @ToString
 
 @Entity
-public class Venda {
+public class Venda implements BaseEntity{
 
     private Date data;
 

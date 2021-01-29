@@ -12,7 +12,8 @@ import java.util.Date;
 @EqualsAndHashCode
 
 @Entity
-public class Categoria implements BaseEntity {
+public class Categoria implements BaseEntity{
+
 
     private String nome;
     private String descricao;

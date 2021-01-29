@@ -11,7 +11,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 
 @Entity
-public class Cidade {
+public class Cidade implements BaseEntity{
 
     private String nome;
 

@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString
 
 @Entity
-public class Funcionario {
+public class Funcionario implements BaseEntity{
 
     private String nome;
     private String endereco;

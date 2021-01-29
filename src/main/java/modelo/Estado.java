@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 
 @Entity
-public class Estado {
+public class Estado implements BaseEntity{
 
     private String nome;
     private String sigla;
