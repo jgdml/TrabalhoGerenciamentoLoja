@@ -1,4 +1,4 @@
-package classes;
+package modelo;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -8,7 +8,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -16,11 +15,13 @@ import java.util.Objects;
 @EqualsAndHashCode
 
 @Entity
-public class Fornecedor {
+public class Cliente {
 
     private String nome;
+    private String endereco;
     private String telefone;
-    private String documento;
+    private String email;
+    private String cpf;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,7 @@ public class Fornecedor {
     @JoinColumn(name="cidade_id")
     private Cidade cidade;
 
+
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
@@ -38,10 +40,22 @@ public class Fornecedor {
     private String status;
 
 
-    public Fornecedor(String nome, String telefone, String documento, Cidade cidade) {
+    public Cliente(String nome, String endereco, String telefone, String email, String cpf, Cidade cidade) {
         this.nome = nome;
+        this.endereco = endereco;
         this.telefone = telefone;
-        this.documento = documento;
+        this.email = email;
+        this.cpf = cpf;
         this.cidade = cidade;
     }
+
+
+//    @Override
+//    public int hashCode() {return getClass().hashCode();}
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+
 }

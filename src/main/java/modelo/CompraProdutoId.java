@@ -1,8 +1,7 @@
-package classes;
+package modelo;
 
 import lombok.*;
 
-import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
@@ -12,18 +11,19 @@ import java.io.Serializable;
 @Setter
 
 @NoArgsConstructor
-@EqualsAndHashCode
 @AllArgsConstructor
+@EqualsAndHashCode
 
-public class VendaProdutoId implements Serializable {
+public class CompraProdutoId implements Serializable {
+
 
     @ManyToOne
     @JoinColumn(name="produto_id")
     private Produto produto;
 
     @ManyToOne
-    @JoinColumn(name="venda_id")
-    private Venda venda;
+    @JoinColumn(name="compra_id")
+    private Compra compra;
 
 
 }

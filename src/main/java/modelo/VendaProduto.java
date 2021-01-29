@@ -1,4 +1,4 @@
-package classes;
+package modelo;
 
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;

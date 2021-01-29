@@ -1,6 +1,9 @@
-package classes;
+package modelo;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -8,32 +11,23 @@ import java.util.Date;
 
 @Getter
 @Setter
-
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString
 
 @Entity
-public class Funcionario {
+public class Fornecedor {
 
     private String nome;
-    private String endereco;
     private String telefone;
-    private String email;
-    private String cpf;
-    private String cargo;
-
+    private String documento;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     @JoinColumn(name="cidade_id")
     private Cidade cidade;
-
-    @OneToOne
-    @JoinColumn(name="usuario_id")
-    private Usuario usuario;
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
@@ -43,14 +37,10 @@ public class Funcionario {
     private String status;
 
 
-    public Funcionario(String nome, String endereco, String telefone, String email, String cpf, String cargo, Cidade cidade, Usuario usuario) {
+    public Fornecedor(String nome, String telefone, String documento, Cidade cidade) {
         this.nome = nome;
-        this.endereco = endereco;
         this.telefone = telefone;
-        this.email = email;
-        this.cpf = cpf;
-        this.cargo = cargo;
+        this.documento = documento;
         this.cidade = cidade;
-        this.usuario = usuario;
     }
 }

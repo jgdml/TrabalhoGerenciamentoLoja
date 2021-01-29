@@ -1,36 +1,26 @@
-package classes;
+package modelo;
+
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
-
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString
 
 @Entity
-public class Venda {
+public class Categoria implements BaseEntity {
 
-    private Date data;
+    private String nome;
+    private String descricao;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @ManyToOne
-    @JoinColumn(name="funcionario_id")
-    private Funcionario funcionario;
-
-    @ManyToOne
-    @JoinColumn(name="cliente_id")
-    private Cliente cliente;
-
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
@@ -39,9 +29,16 @@ public class Venda {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Venda(Funcionario funcionario, Cliente cliente, Date data) {
-        this.funcionario = funcionario;
-        this.cliente = cliente;
-        this.data = data;
+    public Categoria(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    //////////////////////////// Hash & Equals e toString
+
+
+    @Override
+    public String toString() {
+        return this.nome;
     }
 }

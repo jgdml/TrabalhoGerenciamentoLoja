@@ -1,23 +1,19 @@
-package classes;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+package modelo;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-
 
 @Getter
 @Setter
+
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 
 @Entity
-public class Compra {
+public class Venda {
 
     private Date data;
 
@@ -26,8 +22,12 @@ public class Compra {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="fornecedor_id")
-    private Fornecedor fornecedor;
+    @JoinColumn(name="funcionario_id")
+    private Funcionario funcionario;
+
+    @ManyToOne
+    @JoinColumn(name="cliente_id")
+    private Cliente cliente;
 
 
     //Status e Dt de atualização atomática
@@ -37,9 +37,9 @@ public class Compra {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Compra(Date data, Fornecedor fornecedor) {
+    public Venda(Funcionario funcionario, Cliente cliente, Date data) {
+        this.funcionario = funcionario;
+        this.cliente = cliente;
         this.data = data;
-        this.fornecedor = fornecedor;
-
     }
 }

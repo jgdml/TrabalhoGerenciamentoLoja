@@ -1,33 +1,18 @@
-import sistema.EMFProducer;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
-import classes.Estado;
-
+import modelo.Categoria;
+import sistema.DaoGenerico;
 
 public class Main {
 
     public static void main(String[] args){
 
-        EntityManagerFactory emf = EMFProducer.getEmf();
+        Categoria cat = new Categoria("cat1", "desc1");
 
-        EntityManager em = emf.createEntityManager();
+        DaoGenerico<Categoria> dc = new DaoGenerico<>();
 
-        Estado es = new Estado("Parana", "PR");
+        dc.save(cat);
 
-        em.getTransaction().begin();
-
-        em.merge(es);
-
-        em.getTransaction().commit();
-
-
-        em.find(Estado.class, 1);
-
-        System.out.println(es.getNome());
-
-
+        System.out.println(dc.findId(Categoria.class, 1).getNome());
 
     }
 }

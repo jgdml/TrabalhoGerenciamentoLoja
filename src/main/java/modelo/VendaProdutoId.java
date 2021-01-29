@@ -1,4 +1,4 @@
-package classes;
+package modelo;
 
 import lombok.*;
 
@@ -11,19 +11,18 @@ import java.io.Serializable;
 @Setter
 
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
+@AllArgsConstructor
 
-public class CompraProdutoId implements Serializable {
-
+public class VendaProdutoId implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="produto_id")
     private Produto produto;
 
     @ManyToOne
-    @JoinColumn(name="compra_id")
-    private Compra compra;
+    @JoinColumn(name="venda_id")
+    private Venda venda;
 
 
 }

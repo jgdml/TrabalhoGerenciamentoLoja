@@ -1,34 +1,31 @@
-package classes;
-
-import lombok.*;
+package modelo;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Getter
 @Setter
-
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString
 
 @Entity
-public class Produto {
+public class Compra {
 
-    private String nome;
-    private int estoque;
-    private double preco;
-
+    private Date data;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="categoria_id")
-    private Categoria categoria;
-
+    @JoinColumn(name="fornecedor_id")
+    private Fornecedor fornecedor;
 
 
     //Status e Dt de atualização atomática
@@ -38,11 +35,9 @@ public class Produto {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
+    public Compra(Date data, Fornecedor fornecedor) {
+        this.data = data;
+        this.fornecedor = fornecedor;
 
-    public Produto(String nome, int estoque, double preco, Categoria categoria) {
-        this.nome = nome;
-        this.estoque = estoque;
-        this.preco = preco;
-        this.categoria = categoria;
     }
 }

@@ -1,27 +1,35 @@
-package classes;
+package modelo;
 
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Getter
 @Setter
+
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 
 @Entity
-public class Categoria {
+public class Produto {
 
     private String nome;
-    private String descricao;
+    private int estoque;
+    private double preco;
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
+    private Categoria categoria;
+
+
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
@@ -30,16 +38,11 @@ public class Categoria {
     @Column(name="status",  columnDefinition = "char(1) default 'A' ")
     private String status;
 
-    public Categoria(String nome, String descricao) {
+
+    public Produto(String nome, int estoque, double preco, Categoria categoria) {
         this.nome = nome;
-        this.descricao = descricao;
-    }
-
-    //////////////////////////// Hash & Equals e toString
-
-
-    @Override
-    public String toString() {
-        return this.nome;
+        this.estoque = estoque;
+        this.preco = preco;
+        this.categoria = categoria;
     }
 }
