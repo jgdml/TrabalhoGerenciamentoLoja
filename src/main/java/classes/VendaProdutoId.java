@@ -13,6 +13,7 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 @EqualsAndHashCode
+@AllArgsConstructor
 
 public class VendaProdutoId implements Serializable {
 
@@ -23,13 +24,6 @@ public class VendaProdutoId implements Serializable {
     @ManyToOne
     @JoinColumn(name="venda_id")
     private Venda venda;
-
-
-    public VendaProdutoId(Produto produto, Venda venda) {
-        this.produto = produto;
-        this.venda = venda;
-    }
-
 
 
 }

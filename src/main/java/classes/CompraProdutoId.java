@@ -1,9 +1,6 @@
 package classes;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +11,7 @@ import java.io.Serializable;
 @Setter
 
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 
 public class CompraProdutoId implements Serializable {
