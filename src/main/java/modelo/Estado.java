@@ -26,8 +26,8 @@ public class Estado implements BaseEntity{
     private Integer id;
 
 
-    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
-    private String status;
+    @Column(name="status")
+    private String status = "A";
 
     public Estado(String nome, String sigla) {
         this.nome = nome;

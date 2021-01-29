@@ -29,8 +29,8 @@ public class Usuario implements BaseEntity{
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
     private Date dt_atualiza;
 
-    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
-    private String status;
+    @Column(name="status")
+    private String status = "A";
 
 
     public Usuario(String login, String senha) {

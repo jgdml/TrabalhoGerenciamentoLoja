@@ -32,11 +32,10 @@ public class Produto implements BaseEntity{
 
 
     //Status e Dt de atualização atomática
-    @ColumnDefault( value = "CURRENT_TIMESTAMP" )
-    private Date dt_atualiza;
+    private Date dt_atualiza = new Date();
 
-    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
-    private String status;
+    @Column(name="status")
+    private String status = "A";
 
 
     public Produto(String nome, int estoque, double preco, Categoria categoria) {

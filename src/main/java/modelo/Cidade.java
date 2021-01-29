@@ -24,8 +24,8 @@ public class Cidade implements BaseEntity{
     private Estado estado;
 
 
-    @Column(name="status",  columnDefinition = "char(1) default 'A' ")
-    private String status;
+    @Column(name="status")
+    private String status = "A";
 
     public Cidade(String nome, Estado estado) {
         this.nome = nome;
