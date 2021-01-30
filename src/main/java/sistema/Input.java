@@ -15,14 +15,28 @@ public class Input {
 
     public static int getInt(String msg){
 
-        System.out.println(msg);
-        return Integer.parseInt(scan.nextLine());
+        while(true){
+            System.out.println(msg);
+            try{
+                return Integer.parseInt(scan.nextLine());
+            }
+            catch(NumberFormatException err){
+                System.out.println(Constantes.ERRO_STR_INT);
+            }
+        }
     }
 
     public static double getDouble(String msg){
 
-        System.out.println(msg);
-        return parseDouble(scan.nextLine());
+        while(true){
+            System.out.println(msg);
+            try{
+                return parseDouble(scan.nextLine());
+            }
+            catch(NumberFormatException err){
+                System.out.println(Constantes.ERRO_STR_DOUBLE);
+            }
+        }
     }
 
 
