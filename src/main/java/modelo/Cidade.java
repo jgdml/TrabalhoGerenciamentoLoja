@@ -31,4 +31,11 @@ public class Cidade implements BaseEntity{
         this.nome = nome;
         this.estado = estado;
     }
+
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.estado.getNome()+"   "
+                +this.getStatus());
+    }
 }

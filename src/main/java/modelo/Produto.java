@@ -44,4 +44,14 @@ public class Produto implements BaseEntity{
         this.preco = preco;
         this.categoria = categoria;
     }
+
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getEstoque()+"   "
+                +this.getPreco()+"  "
+                +this.categoria.getNome()+"   "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
 }

@@ -40,4 +40,14 @@ public class VendaProduto {
         this.produto = produto;
         this.venda = venda;
     }
+
+    public void print(){
+        System.out.println(
+                this.getQuantidade()+"   "
+                +this.getPreco()+"   "
+                +this.produto.getNome()+"  "
+                +this.venda.getData()+"   "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
 }

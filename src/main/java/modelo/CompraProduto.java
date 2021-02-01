@@ -46,4 +46,13 @@ public class CompraProduto {
         this.produto = produto;
         this.compra = compra;
     }
+
+    public void print(){
+        System.out.println(
+                this.getQuantidade()+"   "
+                +this.getPreco()+"   "
+                +this.produto.getNome()+"  "
+                +this.compra.getData()+"   "
+                +this.getStatus());
+    }
 }

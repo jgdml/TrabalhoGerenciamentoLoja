@@ -6,4 +6,6 @@ public interface BaseEntity {
     public String getStatus();
     public void setStatus(String status);
 
+    public void print();
+
 }

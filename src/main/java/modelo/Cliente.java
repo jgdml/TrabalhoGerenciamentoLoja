@@ -49,6 +49,16 @@ public class Cliente implements BaseEntity{
         this.cidade = cidade;
     }
 
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getEndereco()+"   "
+                +this.getTelefone()+"   "
+                +this.getEmail()+"   "
+                +this.getCpf()+"   "
+                +this.cidade.getNome());
+    }
+
 
 //    @Override
 //    public int hashCode() {return getClass().hashCode();}

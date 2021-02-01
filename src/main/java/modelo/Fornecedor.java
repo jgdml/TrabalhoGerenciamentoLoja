@@ -42,4 +42,15 @@ public class Fornecedor implements BaseEntity{
         this.documento = documento;
         this.cidade = cidade;
     }
+
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getTelefone()+"   "
+                +this.getDocumento()+"  "
+                +this.cidade.getNome()+"   "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
+
 }

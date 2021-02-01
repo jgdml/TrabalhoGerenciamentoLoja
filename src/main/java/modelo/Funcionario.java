@@ -53,4 +53,16 @@ public class Funcionario implements BaseEntity{
         this.cidade = cidade;
         this.usuario = usuario;
     }
+
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getEndereco()+"   "
+                +this.getTelefone()+"  "
+                +this.getEmail()+"   "
+                +this.getCpf()+"   "
+                +this.getCargo()+"   "
+                +this.cidade.getNome()+"   "
+                +this.usuario.getLogin());
+    }
 }

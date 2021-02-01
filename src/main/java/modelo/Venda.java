@@ -42,4 +42,13 @@ public class Venda implements BaseEntity{
         this.cliente = cliente;
         this.data = data;
     }
+
+    public void print(){
+        System.out.println(
+                this.funcionario.getNome()+"   "
+                +this.cliente.getNome()+"   "
+                +this.getData()+"  "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
 }

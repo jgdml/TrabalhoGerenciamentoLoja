@@ -37,4 +37,12 @@ public class Usuario implements BaseEntity{
         this.login = login;
         this.senha = senha;
     }
+
+    public void print(){
+        System.out.println(
+                this.getLogin()+"   "
+                +this.getSenha()+"   "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
 }

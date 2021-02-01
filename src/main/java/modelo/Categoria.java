@@ -38,11 +38,19 @@ public class Categoria implements BaseEntity{
         this.descricao = descricao;
     }
 
-    //////////////////////////// Hash & Equals e toString
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getDescricao()+"   "
+                +this.getStatus()+"   "
+                +this.getDt_atualiza());
+    }
 
+    //////////////////////////// Hash & Equals e toString
 
     @Override
     public String toString() {
         return this.nome;
     }
 }
+

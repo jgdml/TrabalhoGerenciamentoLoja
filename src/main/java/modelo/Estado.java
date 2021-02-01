@@ -33,4 +33,11 @@ public class Estado implements BaseEntity{
         this.nome = nome;
         this.sigla = sigla;
     }
+
+    public void print(){
+        System.out.println(
+                this.getNome()+"   "
+                +this.getSigla()+"   "
+                +this.getStatus());
+    }
 }

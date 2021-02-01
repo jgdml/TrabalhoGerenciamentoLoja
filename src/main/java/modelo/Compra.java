@@ -39,4 +39,11 @@ public class Compra implements BaseEntity{
         this.fornecedor = fornecedor;
 
     }
+
+    public void print(){
+        System.out.println(
+                this.getData()+"   "
+                +this.getFornecedor()+"   "
+                +this.getStatus()+"   ");
+    }
 }
