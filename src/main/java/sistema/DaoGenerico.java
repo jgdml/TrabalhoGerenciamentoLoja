@@ -1,5 +1,6 @@
 package sistema;
 
+import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import modelo.BaseEntity;
 
 
@@ -31,7 +32,7 @@ public class DaoGenerico<T extends BaseEntity> {
     public void deletar(T obj) {
 
         if (obj.getStatus() != null) {
-            obj.setStatus("I");
+            obj.setStatus(Constantes.STATUS_INATIVO);
             salvarOuAtualizar(obj);
         }
 
