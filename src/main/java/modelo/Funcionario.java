@@ -2,6 +2,7 @@ package modelo;
 
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import sistema.Constantes;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -39,7 +40,7 @@ public class Funcionario implements BaseEntity{
     private Date dt_atualiza = new Date();
 
     @Column(name="status")
-    private String status = "A";
+    private String status = Constantes.STATUS_ATIVO;
 
 
 

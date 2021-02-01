@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import sistema.Constantes;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -31,7 +32,7 @@ public class Categoria implements BaseEntity{
     private Date dt_atualiza = new Date();
 
     @Column(name="status")
-    private String status = "A";
+    private String status = Constantes.STATUS_ATIVO;
 
     public Categoria(String nome, String descricao) {
         this.nome = nome;

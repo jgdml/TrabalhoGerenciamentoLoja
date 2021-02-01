@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import sistema.Constantes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +37,7 @@ public class CompraProduto {
     private Date dt_atualiza = new Date();
 
     @Column(name="status")
-    private String status = "A";
+    private String status = Constantes.STATUS_ATIVO;
 
 
 

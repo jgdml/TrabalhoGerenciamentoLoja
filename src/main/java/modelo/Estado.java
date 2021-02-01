@@ -2,6 +2,7 @@ package modelo;
 
 
 import lombok.*;
+import sistema.Constantes;
 
 import javax.persistence.*;
 
@@ -27,7 +28,7 @@ public class Estado implements BaseEntity{
 
 
     @Column(name="status")
-    private String status = "A";
+    private String status = Constantes.STATUS_ATIVO;
 
     public Estado(String nome, String sigla) {
         this.nome = nome;
