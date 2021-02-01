@@ -21,7 +21,7 @@ import java.util.Date;
 
 @Entity
 @IdClass(CompraProdutoId.class)
-public class CompraProduto {
+public class CompraProduto implements BaseEntityAssociativa {
 
     private int quantidade;
     private double preco;
