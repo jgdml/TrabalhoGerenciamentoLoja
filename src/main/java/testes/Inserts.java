@@ -49,7 +49,7 @@ public class Inserts {
 
 //==========================================================================================
 
-        Usuario usu = new Usuario ("Login 1","Senha 1");
+        Usuario usu = new Usuario ("adm","adm");
         Usuario usu1 = new Usuario ( "Login 2", "Senha2");
 
         DaoGenerico<Usuario> dusu = new DaoGenerico<>();
@@ -59,8 +59,8 @@ public class Inserts {
 
 //==========================================================================================
 
-        Funcionario fun = new Funcionario ("Nome 1", "Endereço 1","Telefone 1", "E-Mail 1", "Cpf 1", "Cargo 1", cid, usu);
-        Funcionario fun1 = new Funcionario ("Nome 2", "Endereço 2","Telefone 2", "E-Mail 2", "Cpf 2", "Cargo 2", cid, usu);
+        Funcionario fun = new Funcionario ("Funcionario 1", "Endereço 1","Telefone 1", "E-Mail 1", "Cpf 1", "Cargo 1", cid, usu);
+        Funcionario fun1 = new Funcionario ("Funcionario 2", "Endereço 2","Telefone 2", "E-Mail 2", "Cpf 2", "Cargo 2", cid, usu1);
 
         DaoGenerico<Funcionario> dfun = new DaoGenerico<>();
 
@@ -69,8 +69,8 @@ public class Inserts {
 
 //==========================================================================================
 
-        Fornecedor forn = new Fornecedor ("Nome 1", "Telefone 1", "Documento 1",cid );
-        Fornecedor forn1 = new Fornecedor ("Nome 2", "Telefone 2", "Documento 2",cid );
+        Fornecedor forn = new Fornecedor ("Fornecedor 1", "Telefone 1", "Documento 1",cid );
+        Fornecedor forn1 = new Fornecedor ("Fornecedor 2", "Telefone 2", "Documento 2",cid );
 
         DaoGenerico<Fornecedor> dforn = new DaoGenerico<>();
 
@@ -99,8 +99,8 @@ public class Inserts {
 
 //==========================================================================================
 
-        Produto prod = new Produto ("Nome 1", 1, 01.00,cat);
-        Produto prod1 = new Produto ("Nome 2", 2, 02.00,cat);
+        Produto prod = new Produto ("Produto 1", 1, 01.00,cat);
+        Produto prod1 = new Produto ("Produto 2", 2, 02.00,cat);
 
         DaoGenerico<Produto> dprod = new DaoGenerico<>();
 
