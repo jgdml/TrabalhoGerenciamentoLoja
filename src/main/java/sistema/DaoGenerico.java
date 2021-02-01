@@ -39,17 +39,29 @@ public class DaoGenerico<T extends BaseEntity> {
 
     }
 
-    public T escolher(Class<T> tipo){
+    public List<T> getRegistros(Class<T> tipo){
 
         List<T> resultado = em.createQuery(String.format("SELECT x FROM %s x WHERE x.status != '%s'", tipo.getSimpleName(), Constantes.STATUS_INATIVO)).getResultList();
 
+        return resultado;
 
-        for(int i = 0; i<resultado.size(); i++){
+    }
+
+    public void printRegistros(List<T> lista){
+
+        for(int i = 0; i<lista.size(); i++){
 
             System.out.print(i+1+".   ");
 
-            resultado.get(i).print();
+            lista.get(i).print();
         }
+    }
+
+    public T escolher(Class<T> tipo){
+
+        List<T> resultado = getRegistros(tipo);
+
+        printRegistros(resultado);
 
         while(true){
 
@@ -64,9 +76,6 @@ public class DaoGenerico<T extends BaseEntity> {
             else{
                 return resultado.get(in);
             }
-
         }
-
-//        return resultado.get(in - 1);
     }
 }
