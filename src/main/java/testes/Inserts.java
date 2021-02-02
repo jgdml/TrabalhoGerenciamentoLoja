@@ -49,8 +49,8 @@ public class Inserts {
 
 //==========================================================================================
 
-        Usuario usu = new Usuario ("adm","adm");
-        Usuario usu1 = new Usuario ( "Login 2", "Senha2");
+        Usuario usu = new Usuario ("adm","adm", true);
+        Usuario usu1 = new Usuario ( "Login 2", "Senha2", false);
 
         DaoGenerico<Usuario> dusu = new DaoGenerico<>();
 

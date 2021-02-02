@@ -20,6 +20,7 @@ public class Usuario implements BaseEntity{
 
     private String login;
     private String senha;
+    private Boolean isAdm;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,15 +35,17 @@ public class Usuario implements BaseEntity{
     private String status = Constantes.STATUS_ATIVO;
 
 
-    public Usuario(String login, String senha) {
+    public Usuario(String login, String senha, Boolean isAdm) {
         this.login = login;
         this.senha = senha;
+        this.isAdm = isAdm;
     }
 
     public void print(){
         System.out.println(
                 this.getLogin()+"   "
                 +this.getSenha()+"   "
+                +this.getIsAdm()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
     }
