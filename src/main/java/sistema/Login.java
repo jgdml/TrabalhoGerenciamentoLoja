@@ -1,5 +1,6 @@
 package sistema;
 
+import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import modelo.Usuario;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ public class Login {
     private static final EntityManager em = EMFProducer.getEmf().createEntityManager();
 
 
-    public static Usuario buscarLogin(String login, String senha){
+    public static String buscarLogin(String login, String senha){
 
         String jpql = String.format("SELECT x FROM Usuario x WHERE x.status != '%s' AND x.login = '%s' AND x.senha = '%s'", Constantes.STATUS_INATIVO, login, senha);
 
@@ -17,12 +18,27 @@ public class Login {
 
 
         try{
-            return res.get(0);
+            return validaLogin(res.get(0));
         }
         catch(IndexOutOfBoundsException err){
-            return new Usuario();
+            return validaLogin(new Usuario());
         }
 
+    }
+
+    //Valida se o login do usuario não está null e retorna o status
+    // A = isAdm | S = LoginTrue | N = LoginFalse
+    private static String validaLogin(Usuario usuario){
+
+        if(usuario != null){
+            if(usuario.getIsAdm()){
+                return Constantes.LOGIN_ISADM;
+            }else {
+                return Constantes.LOGIN_TRUE;
+            }
+        } else{
+            return Constantes.LOGIN_FALSE;
+        }
     }
 
 }

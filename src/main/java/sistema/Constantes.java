@@ -10,4 +10,23 @@ public class Constantes {
 
     public static final String STATUS_ATIVO = "A";
     public static final String STATUS_INATIVO = "I";
+
+
+    public static final String LOGIN_ISADM = "A";
+    public static final String LOGIN_TRUE = "S";
+    public static final String LOGIN_FALSE = "N";
+    public static final String LOGIN_NAO_ENCONTRADO = "Usuário ou Senha estão incorretos!\n"+
+            "⠄⠄⠄⢠⣶⣶⣦⣤⣶⣦⣤⣶⣶⣤⡄⠄⡆\n" +
+            "⠄⣂⣀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠄⡆\n" +
+            "⢠⢻⣿⡿⣟⡛⠻⢿⣿⣿⡿⠿⠟⠻⢿⣿⣇\n" +
+            "⢀⣺⣿⡟⠋⡉⢉⠚⢿⣿⠗⢊⠙⡛⢿⣿⡌\n" +
+            "⠈⣝⣿⣿⣿⣧⣤⣤⣿⣿⣶⣤⣼⣿⣿⣿⡇\n" +
+            "⠄⠙⣿⣿⣿⣿⣿⡿⣿⣿⣷⣿⣿⣿⣿⡟⠄\n" +
+            "⠄⠄⣿⣿⣿⠛⣋⣩⣬⣥⣤⡍⢙⣿⣿⡇⠄\n" +
+            "⠄⠄⠘⣿⣿⣴⣭⣿⣿⣿⣿⣵⣾⣿⠏⠄⠄\n" +
+            "⠄⠄⠄⣿⣿⣿⣿⣷⣤⣴⣿⣿⣿⣿⠄⣠⠤\n" +
+            "⢀⠄⠚⣿⣿⣷⡌⣁⣀⣀⣩⣴⣿⣿⠄⠈⣍⣛.";
+
+
+
 }
