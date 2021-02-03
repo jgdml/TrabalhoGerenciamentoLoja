@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -45,6 +46,11 @@ public class Categoria implements BaseEntity{
                 +this.getDescricao()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome: ");
+        this.descricao = Input.get("Digite a descrição: ");
     }
 
     //////////////////////////// Hash & Equals e toString

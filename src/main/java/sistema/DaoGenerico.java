@@ -1,8 +1,6 @@
 package sistema;
 
-import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import modelo.BaseEntity;
-
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -41,6 +39,7 @@ public class DaoGenerico<T extends BaseEntity> {
         if (obj.getStatus() != null) {
             obj.setStatus(Constantes.STATUS_INATIVO);
             salvarOuAtualizar(obj);
+            printRegistros();
         }
 
     }

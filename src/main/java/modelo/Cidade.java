@@ -2,6 +2,7 @@ package modelo;
 
 import lombok.*;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 
@@ -31,6 +32,10 @@ public class Cidade implements BaseEntity{
     public Cidade(String nome, Estado estado) {
         this.nome = nome;
         this.estado = estado;
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome da cidade: ");
     }
 
     public void print(){

@@ -3,6 +3,7 @@ package modelo;
 
 import lombok.*;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 
@@ -40,5 +41,10 @@ public class Estado implements BaseEntity{
                 this.getNome()+"   "
                 +this.getSigla()+"   "
                 +this.getStatus());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome do estado: ");
+        this.sigla = Input.get("Digite a sigla do estado: ");
     }
 }

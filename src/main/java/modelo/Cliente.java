@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -58,6 +59,14 @@ public class Cliente implements BaseEntity{
                 +this.getEmail()+"   "
                 +this.getCpf()+"   "
                 +this.cidade.getNome());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome do cliente: ");
+        this.endereco = Input.get("Digite o endereço: ");
+        this.telefone = Input.get("Digite o telefone: ");
+        this.email = Input.get("Digite o email: ");
+        this.cpf = Input.get("Digite o cpf: ");
     }
 
 

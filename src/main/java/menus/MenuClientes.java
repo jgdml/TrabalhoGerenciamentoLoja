@@ -1,12 +1,13 @@
 package menus;
 
+import modelo.Cidade;
 import modelo.Cliente;
 import sistema.DaoGenerico;
 import sistema.Input;
 
 public class MenuClientes {
 
-    private DaoGenerico<Cliente> daoCliente = new DaoGenerico<>(Cliente.class);
+    private final DaoGenerico<Cliente> daoCliente = new DaoGenerico<>(Cliente.class);
 
     public void executar(){
         String opcao = "";
@@ -40,7 +41,9 @@ public class MenuClientes {
         switch (op) {
 
             case "1":
-//                daoCliente.salvarOuAtualizar();
+                Cliente c = new Cliente();
+                c.preencher();
+//                daoCliente.salvarOuAtualizar(c);
                 break;
 
             case "2":
@@ -48,7 +51,7 @@ public class MenuClientes {
                 break;
 
             case "3":
-//                alterarProduto();
+//                daoCliente.alterarProduto();
                 break;
 
             case "4":
