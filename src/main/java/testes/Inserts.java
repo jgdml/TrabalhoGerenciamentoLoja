@@ -12,7 +12,7 @@ public class Inserts {
         Categoria cat = new Categoria("Categoria 1", "Descricao 1");
         Categoria cat2 = new Categoria("Categoria 2", "Descricao 2");
 
-        DaoGenerico<Categoria> dcat = new DaoGenerico<>();
+        DaoGenerico<Categoria> dcat = new DaoGenerico<>(Categoria.class);
 
         dcat.salvarOuAtualizar(cat);
         dcat.salvarOuAtualizar(cat2);
@@ -22,7 +22,7 @@ public class Inserts {
         Estado est = new Estado("Estado 1", "RJ");
         Estado est1 = new Estado("Estado 2", "e2");
 
-        DaoGenerico<Estado> dest = new DaoGenerico<>();
+        DaoGenerico<Estado> dest = new DaoGenerico<>(Estado.class);
 
         dest.salvarOuAtualizar(est);
         dest.salvarOuAtualizar(est1);
@@ -32,7 +32,7 @@ public class Inserts {
         Cidade cid = new Cidade ("Cidade 1", est);
         Cidade cid1 = new Cidade("Cidade 2", est);
 
-        DaoGenerico<Cidade> dcid = new DaoGenerico<>();
+        DaoGenerico<Cidade> dcid = new DaoGenerico<>(Cidade.class);
 
         dcid.salvarOuAtualizar(cid);
         dcid.salvarOuAtualizar(cid1);
@@ -42,7 +42,7 @@ public class Inserts {
         Cliente cli = new Cliente ( "Cliente 1", "Endereço 1", "Telefone 1", "E-mail 1", "Cpf 1", cid);
         Cliente cli1 = new Cliente ( "Cliente 2", "Endereço 2", "telefone 2", "E-mail 2", "Cpf 2", cid );
 
-        DaoGenerico<Cliente> dcli = new DaoGenerico<>();
+        DaoGenerico<Cliente> dcli = new DaoGenerico<>(Cliente.class);
 
         dcli.salvarOuAtualizar(cli);
         dcli.salvarOuAtualizar(cli1);
@@ -52,7 +52,7 @@ public class Inserts {
         Usuario usu = new Usuario ("adm","adm", true);
         Usuario usu1 = new Usuario ( "Login 2", "Senha2", false);
 
-        DaoGenerico<Usuario> dusu = new DaoGenerico<>();
+        DaoGenerico<Usuario> dusu = new DaoGenerico<>(Usuario.class);
 
         dusu.salvarOuAtualizar(usu);
         dusu.salvarOuAtualizar(usu1);
@@ -62,7 +62,7 @@ public class Inserts {
         Funcionario fun = new Funcionario ("Funcionario 1", "Endereço 1","Telefone 1", "E-Mail 1", "Cpf 1", "Cargo 1", cid, usu);
         Funcionario fun1 = new Funcionario ("Funcionario 2", "Endereço 2","Telefone 2", "E-Mail 2", "Cpf 2", "Cargo 2", cid, usu1);
 
-        DaoGenerico<Funcionario> dfun = new DaoGenerico<>();
+        DaoGenerico<Funcionario> dfun = new DaoGenerico<>(Funcionario.class);
 
         dfun.salvarOuAtualizar(fun);
         dfun.salvarOuAtualizar(fun1);
@@ -72,7 +72,7 @@ public class Inserts {
         Fornecedor forn = new Fornecedor ("Fornecedor 1", "Telefone 1", "Documento 1",cid );
         Fornecedor forn1 = new Fornecedor ("Fornecedor 2", "Telefone 2", "Documento 2",cid );
 
-        DaoGenerico<Fornecedor> dforn = new DaoGenerico<>();
+        DaoGenerico<Fornecedor> dforn = new DaoGenerico<>(Fornecedor.class);
 
         dforn.salvarOuAtualizar(forn);
         dforn.salvarOuAtualizar(forn1);
@@ -82,7 +82,7 @@ public class Inserts {
         Compra com = new Compra (new Date(),forn);
         Compra com1 = new Compra (new Date(),forn);
 
-        DaoGenerico<Compra> dcom = new DaoGenerico<>();
+        DaoGenerico<Compra> dcom = new DaoGenerico<>(Compra.class);
 
         dcom.salvarOuAtualizar(com);
         dcom.salvarOuAtualizar(com1);
@@ -92,7 +92,7 @@ public class Inserts {
         Venda ven = new Venda(fun,cli, new Date());
         Venda ven1 = new Venda(fun,cli, new Date());
 
-        DaoGenerico<Venda> dven = new DaoGenerico<>();
+        DaoGenerico<Venda> dven = new DaoGenerico<>(Venda.class);
 
         dven.salvarOuAtualizar(ven);
         dven.salvarOuAtualizar(ven1);
@@ -102,7 +102,7 @@ public class Inserts {
         Produto prod = new Produto ("Produto 1", 1, 01.00,cat);
         Produto prod1 = new Produto ("Produto 2", 2, 02.00,cat);
 
-        DaoGenerico<Produto> dprod = new DaoGenerico<>();
+        DaoGenerico<Produto> dprod = new DaoGenerico<>(Produto.class);
 
         dprod.salvarOuAtualizar(prod);
         dprod.salvarOuAtualizar(prod1);

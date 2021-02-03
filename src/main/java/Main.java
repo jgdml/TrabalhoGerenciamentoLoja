@@ -1,3 +1,4 @@
+import menus.MenuClientes;
 import modelo.Categoria;
 import sistema.DaoGenerico;
 
@@ -11,7 +12,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Inserts.init();
-        Menus.bemVindo();
-        Menus.menuLogin();
+//        Menus.bemVindo();
+//        Menus.menuLogin();
+
+        MenuClientes mc = new MenuClientes();
+
+        mc.executar();
+
+
     }
 }

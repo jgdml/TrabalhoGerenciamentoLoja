@@ -7,6 +7,9 @@ public class MenuPrincipal {
 
     private String isAdm;
 
+    private MenuClientes menuClientes = new MenuClientes();
+
+
     public MenuPrincipal(String isAdm) {
         this.isAdm = isAdm;
     }
@@ -55,17 +58,17 @@ public class MenuPrincipal {
                 System.out.println("Menu faltando");
 
             case "3":
-                MenuProdutos.executar();
+//                MenuProdutos.executar();
 
             case  "4":
-                MenuClientes.executar();
+//                MenuClientes.executar();
 
             case "5":
-                MenuUtilidades.executar();
+//                MenuUtilidades.executar();
 
             case "6":
                 if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
-                    MenuAdm.executar();
+//                    MenuAdm.executar();
                 }else{
                     break;
                 }

@@ -10,6 +10,12 @@ import java.util.List;
 public class DaoGenerico<T extends BaseEntity> {
     private static EntityManager em = EMFProducer.getEmf().createEntityManager();
 
+    private Class<T> cl;
+
+    public DaoGenerico(Class<T> cl) {
+        this.cl = cl;
+    }
+
     public T findId(Class<T> cl, Integer id) {
         return em.find(cl, id);
     }
@@ -39,15 +45,16 @@ public class DaoGenerico<T extends BaseEntity> {
 
     }
 
-    public List<T> getRegistros(Class<T> tipo){
+    private List<T> getRegistros(){
 
-        List<T> resultado = em.createQuery(String.format("SELECT x FROM %s x WHERE x.status != '%s'", tipo.getSimpleName(), Constantes.STATUS_INATIVO)).getResultList();
+        List<T> resultado = em.createQuery(String.format("SELECT x FROM %s x WHERE x.status != '%s'", this.cl.getSimpleName(), Constantes.STATUS_INATIVO)).getResultList();
 
         return resultado;
 
     }
 
-    public void printRegistros(List<T> lista){
+    public void printRegistros(){
+        List<T> lista = getRegistros();
 
         for(int i = 0; i<lista.size(); i++){
 
@@ -57,11 +64,11 @@ public class DaoGenerico<T extends BaseEntity> {
         }
     }
 
-    public T escolher(Class<T> tipo){
+    public T escolher(){
 
-        List<T> resultado = getRegistros(tipo);
+        List<T> resultado = getRegistros();
 
-        printRegistros(resultado);
+        printRegistros();
 
         while(true){
 
