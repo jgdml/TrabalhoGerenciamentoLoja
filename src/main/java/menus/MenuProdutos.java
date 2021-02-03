@@ -1,9 +1,13 @@
 package menus;
 
+import modelo.Produto;
 import sistema.Constantes;
+import sistema.DaoGenerico;
 import sistema.Input;
 
 public class MenuProdutos {
+
+    private DaoGenerico<Produto> daoProduto = new DaoGenerico<>(Produto.class);
 
     public void executar(){
         String opcao = "";
@@ -39,27 +43,23 @@ public class MenuProdutos {
         switch (op){
 
             case "1":
-                cadastrarProduto();
-
+//                cadastrarProduto();
+                break;
             case "2":
-//                listarProdutos();
-
+                this.daoProduto.printRegistros();
+                break;
             case "3":
 //                alterarProduto();
-
+                break;
             case "4":
-//                deletarProduto();
 
+                this.daoProduto.deletar(this.daoProduto.escolher());
+                break;
             default:
                 System.out.println("Opção inválida!");
                 break;
 
         }
-
+        Input.get("Pressione enter para continuar");
     }
-
-    private void cadastrarProduto(){
-
-    }
-
 }

@@ -9,7 +9,7 @@ public class Input {
 
     public static String get(String msg){
 
-        System.out.println(msg);
+        System.out.print(msg);
         return scan.nextLine();
     }
 
