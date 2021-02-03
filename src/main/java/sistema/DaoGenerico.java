@@ -6,9 +6,8 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public class DaoGenerico<T extends BaseEntity> {
-    private static EntityManager em = EMFProducer.getEmf().createEntityManager();
-
-    private Class<T> cl;
+    private static final EntityManager em = EMFProducer.getEmf().createEntityManager();
+    private final Class<T> cl;
 
     public DaoGenerico(Class<T> cl) {
         this.cl = cl;
@@ -55,6 +54,7 @@ public class DaoGenerico<T extends BaseEntity> {
 
     public void printRegistros(){
         List<T> lista = getRegistros();
+        System.out.println("\n");
 
         for(int i = 0; i<lista.size(); i++){
 

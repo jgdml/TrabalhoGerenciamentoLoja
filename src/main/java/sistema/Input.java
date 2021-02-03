@@ -16,7 +16,7 @@ public class Input {
     public static int getInt(String msg){
 
         while(true){
-            System.out.println(msg);
+            System.out.print(msg);
             try{
                 return Integer.parseInt(scan.nextLine());
             }
@@ -29,7 +29,7 @@ public class Input {
     public static double getDouble(String msg){
 
         while(true){
-            System.out.println(msg);
+            System.out.print(msg);
             try{
                 return parseDouble(scan.nextLine());
             }
