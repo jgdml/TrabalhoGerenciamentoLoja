@@ -3,6 +3,7 @@ package modelo;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -50,5 +51,10 @@ public class VendaProduto implements BaseEntityAssociativa {
                 +this.venda.getData()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
+    }
+
+    public void preencher(){
+        this.quantidade = Input.getInt("Digite o nome: ");
+        this.preco = Input.getDouble("Digite a endereco: ");
     }
 }

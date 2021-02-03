@@ -3,6 +3,7 @@ package modelo;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -65,5 +66,14 @@ public class Funcionario implements BaseEntity{
                 +this.getCargo()+"   "
                 +this.cidade.getNome()+"   "
                 +this.usuario.getLogin());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome: ");
+        this.endereco = Input.get("Digite a endereco: ");
+        this.telefone = Input.get("Digite o documento");
+        this.email = Input.get("Digite o email:");
+        this.cpf = Input.get("Digite o cpf:");
+        this.cargo = Input.get("Digite o cargo:");
     }
 }

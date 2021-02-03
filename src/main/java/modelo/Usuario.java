@@ -3,6 +3,7 @@ package modelo;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -48,5 +49,10 @@ public class Usuario implements BaseEntity{
                 +this.getIsAdm()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
+    }
+
+    public void preencher(){
+        this.login = Input.get("Digite o nome: ");
+        this.senha = Input.get("Digite a endereco: ");
     }
 }

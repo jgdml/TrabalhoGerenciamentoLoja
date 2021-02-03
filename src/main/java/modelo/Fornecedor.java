@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -52,6 +53,12 @@ public class Fornecedor implements BaseEntity{
                 +this.cidade.getNome()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome: ");
+        this.telefone = Input.get("Digite a telefone: ");
+        this.documento = Input.get("Digite o documento");
     }
 
 }

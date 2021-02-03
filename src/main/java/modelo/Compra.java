@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -47,4 +48,5 @@ public class Compra implements BaseEntity{
                 +this.getFornecedor()+"   "
                 +this.getStatus()+"   ");
     }
+
 }

@@ -3,6 +3,7 @@ package modelo;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -54,5 +55,11 @@ public class Produto implements BaseEntity{
                 +this.categoria.getNome()+"   "
                 +this.getStatus()+"   "
                 +this.getDt_atualiza());
+    }
+
+    public void preencher(){
+        this.nome = Input.get("Digite o nome:");
+        this.estoque = Input.getInt("Digite o estoque: ");
+        this.preco = Input.getDouble("Digite o documento");
     }
 }

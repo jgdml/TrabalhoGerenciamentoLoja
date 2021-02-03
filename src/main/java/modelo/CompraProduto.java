@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
+import sistema.Input;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,5 +56,10 @@ public class CompraProduto implements BaseEntityAssociativa {
                 +this.produto.getNome()+"  "
                 +this.compra.getData()+"   "
                 +this.getStatus());
+    }
+
+    public void preencher(){
+        this.quantidade = Input.getInt("Digite o quantidade: ");
+        this.preco = Input.getDouble("Digite a preco: ");
     }
 }
