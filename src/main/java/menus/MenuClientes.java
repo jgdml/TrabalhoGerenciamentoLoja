@@ -4,6 +4,7 @@ import modelo.Cidade;
 import modelo.Cliente;
 import sistema.DaoGenerico;
 import sistema.Input;
+import sistema.PreencherFk;
 
 public class MenuClientes {
 
@@ -33,6 +34,7 @@ public class MenuClientes {
 
 
     private void executarMenu(final String op) {
+        Cliente c = new Cliente();
 
         if (op.equals("0")) {
             return;
@@ -41,21 +43,23 @@ public class MenuClientes {
         switch (op) {
 
             case "1":
-                Cliente c = new Cliente();
                 c.preencher();
-//                daoCliente.salvarOuAtualizar(c);
+                PreencherFk.fkCliente(c);
+                daoCliente.salvarOuAtualizar(c);
                 break;
 
             case "2":
-                this.daoCliente.printRegistros();
+                daoCliente.printRegistros();
                 break;
 
             case "3":
-//                daoCliente.alterarProduto();
+                c = daoCliente.escolher();
+                c.preencher();
+                daoCliente.salvarOuAtualizar(c);
                 break;
 
             case "4":
-                this.daoCliente.deletar(this.daoCliente.escolher());
+                daoCliente.deletar(daoCliente.escolher());
                 break;
 
             default:
@@ -64,7 +68,7 @@ public class MenuClientes {
 
         }
 
-        Input.get("Pressione enter para continuar");
+        Input.get("\nPressione enter para continuar...");
 
     }
 }
