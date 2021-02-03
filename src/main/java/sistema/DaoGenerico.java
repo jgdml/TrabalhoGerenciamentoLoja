@@ -52,6 +52,7 @@ public class DaoGenerico<T extends BaseEntity> {
 
     }
 
+
     public void printRegistros(){
         List<T> lista = getRegistros();
 

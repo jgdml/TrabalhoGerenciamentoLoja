@@ -1,26 +1,28 @@
 package menus;
 
-import modelo.Produto;
+import modelo.Cliente;
+import modelo.Fornecedor;
 import sistema.Constantes;
 import sistema.DaoGenerico;
 import sistema.Input;
 
-public class MenuProdutos {
+public class MenuFornecedor {
 
-    private DaoGenerico<Produto> daoProduto = new DaoGenerico<>(Produto.class);
+    private DaoGenerico<Fornecedor> daoFornecedor = new DaoGenerico<>(Fornecedor.class);
 
     public void executar(){
         String opcao = "";
         do{
-            opcao = menuProdutos();
+            opcao = menuFornecedor();
             executarMenu(opcao);
         } while (!opcao.equals("0"));
     }
 
 
-    private String menuProdutos() {
+    private String menuFornecedor() {
 
-        System.out.println("┃☰☰\uD835\uDC77\uD835\uDC93\uD835\uDC90\uD835\uDC85\uD835\uDC96\uD835\uDC95\uD835\uDC90\uD835\uDC94☰☰\n" +
+
+        System.out.println("┃☰☰\uD835\uDC6D\uD835\uDC90\uD835\uDC93\uD835\uDC8F\uD835\uDC86\uD835\uDC84\uD835\uDC86\uD835\uDC85\uD835\uDC90\uD835\uDC93☰☰\n" +
                 "┃\n" +
                 "┃1. Cadastrar novo\n" +
                 "┃2. Ver todos\n" +
@@ -28,7 +30,8 @@ public class MenuProdutos {
                 "┃4. Deletar\n" +
                 "┃0. Voltar\n" +
                 "┃\n" +
-                "┃☰☰☰☰☰☰☰☰☰");
+                "┃☰☰☰☰☰☰☰☰☰☰");
+
 
         return Input.get("Opção: ");
 
@@ -36,30 +39,35 @@ public class MenuProdutos {
 
     private void executarMenu(final String op) {
 
-        if(op.equals("0")){
+        if (op.equals("0")) {
             return;
         }
 
-        switch (op){
+        switch (op) {
 
             case "1":
-//                cadastrarProduto();
-                break;
-            case "2":
-                this.daoProduto.printRegistros();
-                break;
-            case "3":
-//                alterarProduto();
-                break;
-            case "4":
+//                cadastrarFornecedor();
 
-                this.daoProduto.deletar(this.daoProduto.escolher());
                 break;
+
+            case "2":
+                this.daoFornecedor.printRegistros();
+
+                break;
+
+            case "3":
+                this.daoFornecedor.salvarOuAtualizar(this.daoFornecedor.escolher());
+
+                break;
+
+            case "4":
+                this.daoFornecedor.deletar(this.daoFornecedor.escolher());
+                break;
+
             default:
                 System.out.println("Opção inválida!");
                 break;
 
         }
-        Input.get("Pressione enter para continuar");
     }
 }
