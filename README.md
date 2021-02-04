@@ -12,10 +12,10 @@ Trabalho onde irá se aplicar conceitos de orientação a objetos e persistênci
 
 Deve ser feito um software de gerenciamento de loja com:
 
-- [ ] Cadastro de produtos
-- [ ] Cadastro de clientes
+- [x] Cadastro de produtos
+- [x] Cadastro de clientes
 - [ ] Controle básico de estoque
 - [ ] Controle básico de vendas
-- [x] Nada 
+- [ ] Nada 
 
 **Programação e testes feitos com ```IntelliJ IDEA```, ```Hibernate```, ```HSQLDB```, ```SQL Power Architect```, e ```XAMPP```. Branchs e códigos gravados em repositório ```GitHub```**
