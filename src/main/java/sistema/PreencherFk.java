@@ -31,6 +31,7 @@ public class PreencherFk {
 
         if (tipo.equals("1")){
             e.preencher();
+            daoEstado.salvarOuAtualizar(e);
         }
         else{
             e = daoEstado.escolher();
@@ -46,6 +47,7 @@ public class PreencherFk {
 
         if (tipo.equals("1")){
             c.preencher();
+            daoCidade.salvarOuAtualizar(c);
             fkCidade(c);
         }
         else{
@@ -61,6 +63,7 @@ public class PreencherFk {
 
         if (tipo.equals("1")){
             c.preencher();
+            daoCidade.salvarOuAtualizar(c);
             fkCidade(c);
         }
         else{
@@ -74,6 +77,7 @@ public class PreencherFk {
 
         if (tipo.equals("1")){
             u.preencher();
+            daoUsuario.salvarOuAtualizar(u);
         }
         else{
             u = daoUsuario.escolher();
