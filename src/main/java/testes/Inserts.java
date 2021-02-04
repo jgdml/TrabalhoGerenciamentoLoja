@@ -2,6 +2,7 @@ package testes;
 
 import modelo.*;
 import sistema.DaoGenerico;
+import sistema.DaoGenericoAssociativo;
 
 import java.util.Date;
 
@@ -99,8 +100,8 @@ public class Inserts {
 
 //==========================================================================================
 
-        Produto prod = new Produto ("Produto 1", 1, 01.00,cat);
-        Produto prod1 = new Produto ("Produto 2", 2, 02.00,cat);
+        Produto prod = new Produto ("Produto 1", 1, 16.00,cat);
+        Produto prod1 = new Produto ("Produto 2", 2, 52.00,cat);
 
         DaoGenerico<Produto> dprod = new DaoGenerico<>(Produto.class);
 
@@ -109,23 +110,23 @@ public class Inserts {
 
 //==========================================================================================
 
-//        VendaProduto venprod = new VendaProduto (1, 01.00, prod, ven);
-//        VendaProduto venprod1 = new VendaProduto (2, 02.00, prod, ven);
-//
-//        DaoGenerico<VendaProduto> dvp = new DaoGenerico<VendaProduto>();
-//
-//        dvp.salvarOuAtualizar(venprod);
-//        dvp.salvarOuAtualizar(venprod1);
-//
+        VendaProduto venprod = new VendaProduto (1, prod, ven);
+        VendaProduto venprod1 = new VendaProduto (2, prod1, ven);
+
+        DaoGenericoAssociativo<VendaProduto> dvp = new DaoGenericoAssociativo<>(VendaProduto.class);
+
+        dvp.salvarOuAtualizar(venprod);
+        dvp.salvarOuAtualizar(venprod1);
+
 ////==========================================================================================
-//
-//        CompraProduto comprod = new CompraProduto (1, 01.00, prod, com);
-//        CompraProduto comprod1 = new CompraProduto (2, 02.00, prod, com);
-//
-//        DaoGenerico<CompraProduto> dcp = new DaoGenerico<CompraProduto>();
-//
-//        dcp.salvarOuAtualizar(comprod);
-//        dcp.salvarOuAtualizar(comprod1);
+
+        CompraProduto comprod = new CompraProduto (1, prod, com);
+        CompraProduto comprod1 = new CompraProduto (2, prod1, com);
+
+        DaoGenericoAssociativo<CompraProduto> dcp = new DaoGenericoAssociativo<>(CompraProduto.class);
+
+        dcp.salvarOuAtualizar(comprod);
+        dcp.salvarOuAtualizar(comprod1);
 
 //==========================================================================================
 

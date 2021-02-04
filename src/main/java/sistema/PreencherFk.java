@@ -86,4 +86,21 @@ public class PreencherFk {
 
     }
 
+    public static void fkFornecedor(Fornecedor fr){
+        String tipo = askTipo("Cidade");
+        Cidade c = new Cidade();
+
+        if(tipo.equals("1")){
+            c.preencher();
+            daoCidade.salvarOuAtualizar(c);
+            fkCidade(c);
+        }
+        else{
+            c = daoCidade.escolher();
+        }
+
+        fr.setCidade(c);
+
+    }
+
 }

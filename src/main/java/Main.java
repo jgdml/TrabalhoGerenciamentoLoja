@@ -1,4 +1,5 @@
 import menus.MenuClientes;
+import menus.MenuFornecedor;
 import menus.MenuProdutos;
 import modelo.Categoria;
 import sistema.DaoGenerico;
@@ -18,8 +19,8 @@ public class Main {
 
 //        MenuClientes mc = new MenuClientes();
 
-        MenuProdutos menuProdutos = new MenuProdutos();
-        menuProdutos.executar();
+        MenuFornecedor mf = new MenuFornecedor();
+        mf.executar();
 
 
     }
