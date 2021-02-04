@@ -39,6 +39,29 @@ public class Input {
         }
     }
 
+    public static Boolean getBool(String msg){
+
+        while(true) {
+
+            System.out.println(msg);
+            System.out.println("1. Sim \n2. Não");
+
+            int op = getInt("Opcão: ");
+
+
+            if (op == 1) {
+                return true;
+
+            } else if (op == 2) {
+                return false;
+
+            } else {
+
+                System.out.println("Opção invalida!");
+            }
+        }
+    }
+
 
 
 }

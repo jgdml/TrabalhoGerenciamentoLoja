@@ -54,5 +54,6 @@ public class Usuario implements BaseEntity{
     public void preencher(){
         this.login = Input.get("Digite o login: ");
         this.senha = Input.get("Digite o senha: ");
+        this.isAdm = Input.getBool("Digite se o usuario é ADM: ");
     }
 }
