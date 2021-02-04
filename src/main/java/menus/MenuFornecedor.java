@@ -5,6 +5,7 @@ import modelo.Fornecedor;
 import sistema.Constantes;
 import sistema.DaoGenerico;
 import sistema.Input;
+import sistema.PreencherFk;
 
 public class MenuFornecedor {
 
@@ -39,6 +40,8 @@ public class MenuFornecedor {
 
     private void executarMenu(final String op) {
 
+        Fornecedor fc = new Fornecedor();
+
         if (op.equals("0")) {
             return;
         }
@@ -46,7 +49,9 @@ public class MenuFornecedor {
         switch (op) {
 
             case "1":
-//                cadastrarFornecedor();
+                fc.preencher();
+                PreencherFk.fkFornecedor(fc);
+                daoFornecedor.salvarOuAtualizar(fc);
 
                 break;
 
@@ -56,7 +61,9 @@ public class MenuFornecedor {
                 break;
 
             case "3":
-                this.daoFornecedor.salvarOuAtualizar(this.daoFornecedor.escolher());
+                fc = daoFornecedor.escolher();
+                fc.preencher();
+                daoFornecedor.salvarOuAtualizar(fc);
 
                 break;
 
