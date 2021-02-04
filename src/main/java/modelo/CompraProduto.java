@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
 import sistema.Input;
 
@@ -42,9 +41,9 @@ public class CompraProduto implements BaseEntityAssociativa {
 
 
 
-    public CompraProduto(int quantidade, double preco, Produto produto, Compra compra) {
+    public CompraProduto(int quantidade, Produto produto, Compra compra) {
         this.quantidade = quantidade;
-        this.preco = preco;
+        this.preco = produto.getPreco() * quantidade;
         this.produto = produto;
         this.compra = compra;
     }
@@ -61,5 +60,12 @@ public class CompraProduto implements BaseEntityAssociativa {
     public void preencher(){
         this.quantidade = Input.getInt("Digite o quantidade: ");
         this.preco = Input.getDouble("Digite a preco: ");
+    }
+
+    public Boolean keyExists(){
+        if (this.compra != null && this.produto != null){
+            return true;
+        }
+        return false;
     }
 }
