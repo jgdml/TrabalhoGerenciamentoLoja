@@ -1,3 +1,4 @@
+import menus.MenuAdmin;
 import menus.MenuClientes;
 import menus.MenuFornecedor;
 import menus.MenuProdutos;
@@ -19,8 +20,8 @@ public class Main {
 
 //        MenuClientes mc = new MenuClientes();
 
-        MenuFornecedor mf = new MenuFornecedor();
-        mf.executar();
+        MenuAdmin mD = new MenuAdmin();
+        mD.executar();
 
 
     }

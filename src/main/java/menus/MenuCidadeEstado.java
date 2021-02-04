@@ -4,6 +4,7 @@ import modelo.Cidade;
 import modelo.Estado;
 import sistema.DaoGenerico;
 import sistema.Input;
+import sistema.PreencherFk;
 
 
 public class MenuCidadeEstado {
@@ -38,6 +39,8 @@ public class MenuCidadeEstado {
     }
 
     private void executarMenu(final String op) {
+        Cidade c = new Cidade();
+        Estado e = new Estado();
 
         if(op.equals("0")) {
             return;
@@ -46,27 +49,34 @@ public class MenuCidadeEstado {
         switch (op) {
 
             case "1":
-
+                c.preencher();
+                PreencherFk.fkCidade(c);
+                daoCidade.salvarOuAtualizar(c);
                 break;
 
             case "2":
-
+                e.preencher();
+                daoEstado.salvarOuAtualizar(e);
                 break;
 
             case "3":
-                this.daoCidade.printRegistros();
+                daoCidade.printRegistros();
                 break;
 
             case "4":
-                this.daoEstado.printRegistros();
+                daoEstado.printRegistros();
                 break;
 
             case "5":
-
+                c = daoCidade.escolher();
+                c.preencher();
+                daoCidade.salvarOuAtualizar(c);
                 break;
 
             case "6":
-
+                e = daoEstado.escolher();
+                e.preencher();
+                daoEstado.salvarOuAtualizar(e);
                 break;
 
 
