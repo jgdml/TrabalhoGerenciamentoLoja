@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 public class Venda implements BaseEntity{
 
-    private Date data;
+    private Date data = new Date();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

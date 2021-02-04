@@ -1,13 +1,16 @@
 package menus;
 
-import sistema.Constantes;
-import sistema.Input;
+import modelo.VendaProduto;
+import sistema.*;
 
 public class MenuPrincipal {
 
     private String isAdm;
     private final MenuClientes menuClientes = new MenuClientes();
     private final MenuUtilidades menuUtilidades = new MenuUtilidades();
+    private final MenuAdmin menuAdmin = new MenuAdmin();
+    private final MenuProdutos menuProdutos = new MenuProdutos();
+    private final DaoGenericoAssociativo<VendaProduto> daoVendaProduto = new DaoGenericoAssociativo<>(VendaProduto.class);
 
 
     public MenuPrincipal(String isAdm) {
@@ -31,11 +34,11 @@ public class MenuPrincipal {
                 "┃2. Realizar Compra\n" +
                 "┃3. Produtos\n" +
                 "┃4. Clientes\n" +
-                "┃5. Utilidades\n");
+                "┃5. Utilidades");
 
         //Se o cara for adm aparece um menu a mais
         if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
-            System.out.println("┃6. Admin\n");
+            System.out.print("┃6. Admin\n");
         }
         System.out.println("┃0. Sair\n" +
                 "┃\n" +
@@ -52,26 +55,36 @@ public class MenuPrincipal {
         }
         switch (op){
             case "1":
-                System.out.println("Menu faltando");
+                VendaProduto vp = new VendaProduto();
+                vp.preencher();
+                PreencherFk.fkVendaProduto(vp);
+                daoVendaProduto.salvarOuAtualizar(vp);
+                break;
 
             case "2":
                 System.out.println("Menu faltando");
+                break;
 
             case "3":
-//                MenuProdutos.executar();
+                menuProdutos.executar();
+                break;
 
             case  "4":
                 menuClientes.executar();
+                break;
 
             case "5":
                 menuUtilidades.executar();
+                break;
 
             case "6":
                 if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
-//                    MenuAdm.executar();
-                }else{
+                    menuAdmin.executar();
+                }
+                else{
                     break;
                 }
+
             default:
                 System.out.println("Opção inválida!");
                 break;

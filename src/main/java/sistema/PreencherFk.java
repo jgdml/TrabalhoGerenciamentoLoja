@@ -9,7 +9,9 @@ public class PreencherFk {
     private static final DaoGenerico<Categoria> daoCategoria = new DaoGenerico<>(Categoria.class);
     private static final DaoGenerico<Estado> daoEstado = new DaoGenerico<>(Estado.class);
     private static final DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>(Usuario.class);
-
+    private static final DaoGenerico<Funcionario> daoFuncionario = new DaoGenerico<>(Funcionario.class);
+    private static final DaoGenerico<Venda> daoVenda = new DaoGenerico<>(Venda.class);
+    private static final DaoGenerico<Produto> daoProduto = new DaoGenerico<>(Produto.class);
 
     private static String askTipo(String classe){
         while (true){
@@ -24,6 +26,8 @@ public class PreencherFk {
             }
         }
     }
+
+
 
 
     //Se o cara escolher 1 ele escolhe criar um novo cadastro
@@ -43,14 +47,16 @@ public class PreencherFk {
     }
 
 
+
+
     public static void fkCliente(Cliente cli){
         String tipo = askTipo("Cidade");
         Cidade c = new Cidade();
 
         if (tipo.equals("1")){
             c.preencher();
-            daoCidade.salvarOuAtualizar(c);
             fkCidade(c);
+            daoCidade.salvarOuAtualizar(c);
         }
         else{
             c = daoCidade.escolher();
@@ -59,19 +65,23 @@ public class PreencherFk {
     }
 
 
+
+
     public static void fkFuncionario(Funcionario f){
         String tipo = askTipo("Cidade");
         Cidade c = new Cidade();
 
         if (tipo.equals("1")){
             c.preencher();
-            daoCidade.salvarOuAtualizar(c);
             fkCidade(c);
+            daoCidade.salvarOuAtualizar(c);
         }
         else{
             c = daoCidade.escolher();
         }
         f.setCidade(c);
+
+
 
 
         tipo = askTipo("Usuario");
@@ -88,14 +98,16 @@ public class PreencherFk {
 
     }
 
+
+
     public static void fkFornecedor(Fornecedor fr){
         String tipo = askTipo("Cidade");
         Cidade c = new Cidade();
 
         if(tipo.equals("1")){
             c.preencher();
-            daoCidade.salvarOuAtualizar(c);
             fkCidade(c);
+            daoCidade.salvarOuAtualizar(c);
         }
         else{
             c = daoCidade.escolher();
@@ -104,6 +116,8 @@ public class PreencherFk {
         fr.setCidade(c);
 
     }
+
+
 
     //Se o cara escolher 1 ele escolhe criar um novo cadastro
     public static void fkProduto(Produto produto){
@@ -119,6 +133,61 @@ public class PreencherFk {
 
         produto.setCategoria(categoria);
 
+    }
+
+
+    public static void fkVenda(Venda v){
+        String tipo = askTipo("Cliente");
+        Cliente cli = new Cliente();
+
+        if (tipo.equals("1")){
+            cli.preencher();
+            fkCliente(cli);
+        }
+        else{
+            cli = daoCliente.escolher();
+        }
+        v.setCliente(cli);
+
+
+
+
+        tipo = askTipo("Funcionario");
+        Funcionario f = new Funcionario();
+
+        if(tipo.equals("1")){
+            f.preencher();
+            fkFuncionario(f);
+            daoFuncionario.salvarOuAtualizar(f);
+        }
+        else{
+            f = daoFuncionario.escolher();
+        }
+        v.setFuncionario(f);
+    }
+
+
+
+    public static void fkVendaProduto(VendaProduto vp){
+
+        Venda v = new Venda();
+        fkVenda(v);
+        daoVenda.salvarOuAtualizar(v);
+        vp.setVenda(v);
+
+
+        String tipo = askTipo("Produto");
+        Produto p = new Produto();
+
+        if(tipo.equals("1")){
+            p.preencher();
+            fkProduto(p);
+            daoProduto.salvarOuAtualizar(p);
+        }
+        else{
+            p = daoProduto.escolher();
+        }
+        vp.setProduto(p);
     }
 
 }
