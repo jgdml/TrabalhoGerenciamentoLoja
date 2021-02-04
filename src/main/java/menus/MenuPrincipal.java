@@ -1,5 +1,6 @@
 package menus;
 
+import modelo.CompraProduto;
 import modelo.VendaProduto;
 import sistema.*;
 
@@ -11,11 +12,13 @@ public class MenuPrincipal {
     private final MenuAdmin menuAdmin = new MenuAdmin();
     private final MenuProdutos menuProdutos = new MenuProdutos();
     private final DaoGenericoAssociativo<VendaProduto> daoVendaProduto = new DaoGenericoAssociativo<>(VendaProduto.class);
+    private final DaoGenericoAssociativo<CompraProduto> daoCompraProduto = new DaoGenericoAssociativo<>(CompraProduto.class);
 
 
     public MenuPrincipal(String isAdm) {
         this.isAdm = isAdm;
     }
+
 
     public void executarPrincipal(){
         String opcao = "";
@@ -62,7 +65,10 @@ public class MenuPrincipal {
                 break;
 
             case "2":
-                System.out.println("Menu faltando");
+                CompraProduto compraProduto = new CompraProduto();
+                compraProduto.preencher();
+                PreencherFk.fkCompraProduto(compraProduto);
+                daoCompraProduto.salvarOuAtualizar(compraProduto);
                 break;
 
             case "3":
@@ -89,6 +95,6 @@ public class MenuPrincipal {
                 System.out.println("Opção inválida!");
                 break;
         }
-
+        Input.get("\nPressione enter para continuar...");
     }
 }

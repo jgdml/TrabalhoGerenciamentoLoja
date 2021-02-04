@@ -19,7 +19,8 @@ import java.util.Date;
 @Entity
 public class Compra implements BaseEntity{
 
-    private Date data;
+    //new Date para pegar data Automaticamente
+    private Date data = new Date();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

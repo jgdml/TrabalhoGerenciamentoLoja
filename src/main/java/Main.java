@@ -1,13 +1,16 @@
-import menus.MenuAdmin;
 import menus.MenuClientes;
 import menus.MenuFornecedor;
+import menus.MenuPrincipal;
 import menus.MenuProdutos;
 import modelo.Categoria;
+import modelo.Produto;
+import sistema.Constantes;
 import sistema.DaoGenerico;
 
 import sistema.Menus;
 import testes.Inserts;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Main {
@@ -20,9 +23,10 @@ public class Main {
 
 //        MenuClientes mc = new MenuClientes();
 
-        MenuAdmin mD = new MenuAdmin();
-        mD.executar();
-
+//        MenuFornecedor mf = new MenuFornecedor();
+//        mf.executar();
+        MenuPrincipal menuPrincipal = new MenuPrincipal(Constantes.LOGIN_ISADM);
+        menuPrincipal.executarPrincipal();
 
     }
 }

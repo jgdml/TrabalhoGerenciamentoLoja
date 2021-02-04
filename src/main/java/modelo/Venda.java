@@ -16,6 +16,7 @@ import java.util.Date;
 @Entity
 public class Venda implements BaseEntity{
 
+    //new Date para pegar data Automaticamente
     private Date data = new Date();
 
     @Id
