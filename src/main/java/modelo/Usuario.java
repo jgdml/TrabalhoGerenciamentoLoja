@@ -30,7 +30,7 @@ public class Usuario implements BaseEntity{
 
     //Status e Dt de atualização atomática
     @ColumnDefault( value = "CURRENT_TIMESTAMP" )
-    private Date dt_atualiza;
+    private Date dt_atualiza = new Date();
 
     @Column(name="status")
     private String status = Constantes.STATUS_ATIVO;
