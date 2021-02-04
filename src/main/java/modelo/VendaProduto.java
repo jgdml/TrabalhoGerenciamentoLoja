@@ -44,17 +44,14 @@ public class VendaProduto implements BaseEntityAssociativa {
 
     public void print(){
         System.out.println(
-                this.getQuantidade()+"   "
+                this.produto.getNome()+"  "
+                +this.getQuantidade()+"   "
                 +this.getPreco()+"   "
-                +this.produto.getNome()+"  "
-                +this.venda.getData()+"   "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+                +this.venda.getData()+"   ");
     }
 
     public void preencher(){
-        this.quantidade = Input.getInt("Digite o nome: ");
-        this.preco = Input.getDouble("Digite a endereco: ");
+        this.quantidade = Input.getInt("Digite a quantidade: ");
     }
 
     public Boolean keyExists(){
