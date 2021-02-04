@@ -1,7 +1,6 @@
 package modelo;
 
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
 import sistema.Input;
 
@@ -36,9 +35,9 @@ public class VendaProduto implements BaseEntityAssociativa {
 
 
 
-    public VendaProduto(int quantidade, double preco, Produto produto, Venda venda) {
+    public VendaProduto(int quantidade, Produto produto, Venda venda) {
         this.quantidade = quantidade;
-        this.preco = preco;
+        this.preco = produto.getPreco() * quantidade;
         this.produto = produto;
         this.venda = venda;
     }
@@ -56,5 +55,12 @@ public class VendaProduto implements BaseEntityAssociativa {
     public void preencher(){
         this.quantidade = Input.getInt("Digite o nome: ");
         this.preco = Input.getDouble("Digite a endereco: ");
+    }
+
+    public Boolean keyExists(){
+        if (this.venda != null && this.produto != null){
+            return true;
+        }
+        return false;
     }
 }
