@@ -69,6 +69,6 @@ public class MenuProdutos {
                 break;
 
         }
-        Input.get("Pressione enter para continuar");
+        Input.get("\nPressione enter para continuar...");
     }
 }

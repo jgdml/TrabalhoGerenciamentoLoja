@@ -74,7 +74,7 @@ public class MenuFornecedor {
             default:
                 System.out.println("Opção inválida!");
                 break;
-
         }
+        Input.get("\nPressione enter para continuar...");
     }
 }

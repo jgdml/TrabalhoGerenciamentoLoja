@@ -12,6 +12,9 @@ public class PreencherFk {
     private static final DaoGenerico<Funcionario> daoFuncionario = new DaoGenerico<>(Funcionario.class);
     private static final DaoGenerico<Venda> daoVenda = new DaoGenerico<>(Venda.class);
     private static final DaoGenerico<Produto> daoProduto = new DaoGenerico<>(Produto.class);
+    private static final DaoGenerico<Fornecedor> daoFornecedor = new DaoGenerico<>(Fornecedor.class);
+    private static final DaoGenerico<Compra> daoCompra = new DaoGenerico<>(Compra.class);
+
 
     private static String askTipo(String classe){
         while (true){
@@ -188,6 +191,46 @@ public class PreencherFk {
             p = daoProduto.escolher();
         }
         vp.setProduto(p);
+    }
+
+
+    public static void fkCompra(Compra compra) {
+        String tipo = askTipo("Fornecedor");
+        Fornecedor fornecedor = new Fornecedor();
+
+        if (tipo.equals("1")) {
+            fornecedor.preencher();
+            fkFornecedor(fornecedor);
+            daoFornecedor.salvarOuAtualizar(fornecedor);
+        } else {
+            fornecedor = daoFornecedor.escolher();
+        }
+        compra.setFornecedor(fornecedor);
+    }
+
+
+
+    public static void fkCompraProduto(CompraProduto compraProduto){
+
+        String tipo = askTipo("Produto");
+        Produto p = new Produto();
+
+        if(tipo.equals("1")){
+            p.preencher();
+            fkProduto(p);
+            daoProduto.salvarOuAtualizar(p);
+        }
+        else{
+            p = daoProduto.escolher();
+        }
+
+        Compra compra = new Compra();
+        fkCompra(compra);
+        daoCompra.salvarOuAtualizar(compra);
+        compraProduto.setCompra(compra);
+
+
+        compraProduto.setProduto(p);
     }
 
 }
