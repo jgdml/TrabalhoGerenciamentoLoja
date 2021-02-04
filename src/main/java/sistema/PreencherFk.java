@@ -6,6 +6,7 @@ public class PreencherFk {
 
     private static final DaoGenerico<Cliente> daoCliente = new DaoGenerico<>(Cliente.class);
     private static final DaoGenerico<Cidade> daoCidade = new DaoGenerico<>(Cidade.class);
+    private static final DaoGenerico<Categoria> daoCategoria = new DaoGenerico<>(Categoria.class);
     private static final DaoGenerico<Estado> daoEstado = new DaoGenerico<>(Estado.class);
     private static final DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>(Usuario.class);
 
@@ -25,6 +26,7 @@ public class PreencherFk {
     }
 
 
+    //Se o cara escolher 1 ele escolhe criar um novo cadastro
     public static void fkCidade(Cidade c){
         String tipo = askTipo("Estado");
         Estado e = new Estado();
@@ -100,6 +102,22 @@ public class PreencherFk {
         }
 
         fr.setCidade(c);
+
+    }
+
+    //Se o cara escolher 1 ele escolhe criar um novo cadastro
+    public static void fkProduto(Produto produto){
+        String tipo = askTipo("Categoria");
+        Categoria categoria = new Categoria();
+
+        if(tipo.equals("1")){
+            categoria.preencher();
+            daoCategoria.salvarOuAtualizar(categoria);
+        }else{
+            categoria = daoCategoria.escolher();
+        }
+
+        produto.setCategoria(categoria);
 
     }
 
