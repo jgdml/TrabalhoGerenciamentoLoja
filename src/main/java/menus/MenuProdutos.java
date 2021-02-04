@@ -4,6 +4,7 @@ import modelo.Produto;
 import sistema.Constantes;
 import sistema.DaoGenerico;
 import sistema.Input;
+import sistema.PreencherFk;
 
 public class MenuProdutos {
 
@@ -36,6 +37,8 @@ public class MenuProdutos {
 
     private void executarMenu(final String op) {
 
+        Produto produto = new Produto();
+
         if(op.equals("0")){
             return;
         }
@@ -43,13 +46,19 @@ public class MenuProdutos {
         switch (op){
 
             case "1":
-//                cadastrarProduto();
+                //Função de cadastro
+                produto.preencher();
+                PreencherFk.fkProduto(produto);
+                daoProduto.salvarOuAtualizar(produto);
                 break;
             case "2":
                 this.daoProduto.printRegistros();
                 break;
             case "3":
-//                alterarProduto();
+                //Função de ALterar cadastro
+                produto = daoProduto.escolher();
+                produto.preencher();
+                daoProduto.salvarOuAtualizar(produto);
                 break;
             case "4":
 
