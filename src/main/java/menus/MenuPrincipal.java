@@ -6,8 +6,8 @@ import sistema.Input;
 public class MenuPrincipal {
 
     private String isAdm;
-
-    private MenuClientes menuClientes = new MenuClientes();
+    private final MenuClientes menuClientes = new MenuClientes();
+    private final MenuUtilidades menuUtilidades = new MenuUtilidades();
 
 
     public MenuPrincipal(String isAdm) {
@@ -61,10 +61,10 @@ public class MenuPrincipal {
 //                MenuProdutos.executar();
 
             case  "4":
-//                MenuClientes.executar();
+                menuClientes.executar();
 
             case "5":
-//                MenuUtilidades.executar();
+                menuUtilidades.executar();
 
             case "6":
                 if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
