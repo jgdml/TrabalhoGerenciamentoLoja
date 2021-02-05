@@ -18,15 +18,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Inserts.init();
-//        Menus.bemVindo();
-//        Menus.menuLogin();
 
-//        MenuClientes mc = new MenuClientes();
+        MenuProdutos menuProdutos = new MenuProdutos();
 
-//        MenuFornecedor mf = new MenuFornecedor();
-//        mf.executar();
-        MenuPrincipal menuPrincipal = new MenuPrincipal(Constantes.LOGIN_ISADM);
-        menuPrincipal.executarPrincipal();
+        menuProdutos.executar();
+
 
     }
 }

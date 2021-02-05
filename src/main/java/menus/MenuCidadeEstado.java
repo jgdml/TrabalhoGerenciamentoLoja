@@ -41,8 +41,8 @@ public class MenuCidadeEstado {
     }
 
     private void executarMenu(final String op) {
-        Cidade c;
-        Estado e = new Estado();
+        Cidade cidade;
+        Estado estado = new Estado();
 
         if(op.equals("0")) {
             return;
@@ -51,13 +51,13 @@ public class MenuCidadeEstado {
         switch (op) {
 
             case "1":
-                c = preencherCidade.preencherTudo();
-                daoCidade.salvarOuAtualizar(c);
+                cidade = preencherCidade.preencherTudo();
+                daoCidade.salvarOuAtualizar(cidade);
                 break;
 
             case "2":
-                e.preencher();
-                daoEstado.salvarOuAtualizar(e);
+                estado.preencher();
+                daoEstado.salvarOuAtualizar(estado);
                 break;
 
             case "3":
@@ -69,15 +69,15 @@ public class MenuCidadeEstado {
                 break;
 
             case "5":
-                c = daoCidade.escolher();
-                c.preencher();
-                daoCidade.salvarOuAtualizar(c);
+                cidade = daoCidade.escolher();
+                cidade.preencher();
+                daoCidade.salvarOuAtualizar(cidade);
                 break;
 
             case "6":
-                e = daoEstado.escolher();
-                e.preencher();
-                daoEstado.salvarOuAtualizar(e);
+                estado = daoEstado.escolher();
+                estado.preencher();
+                daoEstado.salvarOuAtualizar(estado);
                 break;
 
 

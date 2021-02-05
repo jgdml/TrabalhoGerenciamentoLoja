@@ -1,5 +1,6 @@
 package menus;
 
+import cadastro.PreencherProduto;
 import modelo.Produto;
 import sistema.Constantes;
 import sistema.DaoGenerico;
@@ -9,6 +10,8 @@ import sistema.PreencherFk;
 public class MenuProdutos {
 
     private DaoGenerico<Produto> daoProduto = new DaoGenerico<>(Produto.class);
+    private final PreencherProduto preencherProduto = new PreencherProduto();
+
 
     public void executar(){
         String opcao = "";
@@ -46,9 +49,7 @@ public class MenuProdutos {
         switch (op){
 
             case "1":
-                //Função de cadastro
-                produto.preencher();
-                PreencherFk.fkProduto(produto);
+                produto = preencherProduto.preencherTudo();
                 daoProduto.salvarOuAtualizar(produto);
                 break;
             case "2":
