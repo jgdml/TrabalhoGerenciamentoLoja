@@ -17,8 +17,15 @@ public class Input {
 
         while(true){
             System.out.print(msg);
+
             try{
-                return Integer.parseInt(scan.nextLine());
+                int val = Integer.parseInt(scan.nextLine());
+                if (val < 0){
+                    System.out.println(Constantes.ERRO_MENOR_UM);
+                }
+                else{
+                    return val;
+                }
             }
             catch(NumberFormatException err){
                 System.out.println(Constantes.ERRO_STR_INT);
@@ -31,7 +38,13 @@ public class Input {
         while(true){
             System.out.print(msg);
             try{
-                return parseDouble(scan.nextLine());
+                double val = parseDouble(scan.nextLine());
+                if (val < 0){
+                    System.out.println(Constantes.ERRO_MENOR_UM);
+                }
+                else{
+                    return val;
+                }
             }
             catch(NumberFormatException err){
                 System.out.println(Constantes.ERRO_STR_DOUBLE);
