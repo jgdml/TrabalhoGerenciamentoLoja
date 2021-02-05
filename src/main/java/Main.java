@@ -1,7 +1,4 @@
-import menus.MenuClientes;
-import menus.MenuFornecedor;
-import menus.MenuPrincipal;
-import menus.MenuProdutos;
+import menus.*;
 import modelo.Categoria;
 import modelo.Produto;
 import sistema.Constantes;
@@ -19,9 +16,9 @@ public class Main {
 
         Inserts.init();
 
-        MenuProdutos menuProdutos = new MenuProdutos();
+        MenuAdmin menuAdmin = new MenuAdmin();
 
-        menuProdutos.executar();
+        menuAdmin.executar();
 
 
     }

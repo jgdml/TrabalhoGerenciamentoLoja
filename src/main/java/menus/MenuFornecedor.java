@@ -42,7 +42,7 @@ public class MenuFornecedor {
 
     private void executarMenu(final String op) {
 
-        Fornecedor fornecedor = new Fornecedor();
+        Fornecedor fornecedor;
 
         if (op.equals("0")) {
             return;

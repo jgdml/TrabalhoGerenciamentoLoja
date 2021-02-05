@@ -1,5 +1,6 @@
 package menus;
 
+import cadastro.PreencherFuncionario;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Usuario;
@@ -11,6 +12,7 @@ import sistema.PreencherFk;
 public class MenuAdmin {
 
     private final DaoGenerico<Funcionario> daoFuncionario = new DaoGenerico<>(Funcionario.class);
+    private final PreencherFuncionario preencherFuncionario = new PreencherFuncionario();
 
     public void executar(){
         String opcao = "";
@@ -37,7 +39,7 @@ public class MenuAdmin {
     }
 
     private void executarMenu(final String op) {
-        Funcionario f = new Funcionario();
+        Funcionario funcionario;
 
         if (op.equals("0")) {
             return;
@@ -46,9 +48,8 @@ public class MenuAdmin {
         switch (op) {
 
             case "1":
-                f.preencher();
-                PreencherFk.fkFuncionario(f);
-                daoFuncionario.salvarOuAtualizar(f);
+                funcionario = preencherFuncionario.preencherTudo();
+                daoFuncionario.salvarOuAtualizar(funcionario);
 
                 break;
 
@@ -58,9 +59,9 @@ public class MenuAdmin {
                 break;
 
             case "3":
-                f = daoFuncionario.escolher();
-                f.preencher();
-                daoFuncionario.salvarOuAtualizar(f);
+                funcionario = daoFuncionario.escolher();
+                funcionario.preencher();
+                daoFuncionario.salvarOuAtualizar(funcionario);
 
                 break;
 
@@ -71,15 +72,15 @@ public class MenuAdmin {
 
             case "5":
 
-                f = daoFuncionario.escolher();
-                f.getUsuario().setIsAdm(true);
+                funcionario = daoFuncionario.escolher();
+                funcionario.getUsuario().setIsAdm(true);
 
                 break;
 
             case "6":
 
-                f = daoFuncionario.escolher();
-                f.getUsuario().setIsAdm(false);
+                funcionario = daoFuncionario.escolher();
+                funcionario.getUsuario().setIsAdm(false);
 
                 break;
 
