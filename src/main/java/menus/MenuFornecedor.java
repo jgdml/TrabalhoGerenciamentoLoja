@@ -1,5 +1,6 @@
 package menus;
 
+import cadastro.PreencherFornecedor;
 import modelo.Cliente;
 import modelo.Fornecedor;
 import sistema.Constantes;
@@ -10,6 +11,7 @@ import sistema.PreencherFk;
 public class MenuFornecedor {
 
     private DaoGenerico<Fornecedor> daoFornecedor = new DaoGenerico<>(Fornecedor.class);
+    private final PreencherFornecedor preencherFornecedor = new PreencherFornecedor();
 
     public void executar(){
         String opcao = "";
@@ -40,7 +42,7 @@ public class MenuFornecedor {
 
     private void executarMenu(final String op) {
 
-        Fornecedor fc = new Fornecedor();
+        Fornecedor fornecedor = new Fornecedor();
 
         if (op.equals("0")) {
             return;
@@ -49,9 +51,8 @@ public class MenuFornecedor {
         switch (op) {
 
             case "1":
-                fc.preencher();
-                PreencherFk.fkFornecedor(fc);
-                daoFornecedor.salvarOuAtualizar(fc);
+                fornecedor = preencherFornecedor.preencherTudo();
+                daoFornecedor.salvarOuAtualizar(fornecedor);
 
                 break;
 
@@ -61,9 +62,9 @@ public class MenuFornecedor {
                 break;
 
             case "3":
-                fc = daoFornecedor.escolher();
-                fc.preencher();
-                daoFornecedor.salvarOuAtualizar(fc);
+                fornecedor = daoFornecedor.escolher();
+                fornecedor.preencher();
+                daoFornecedor.salvarOuAtualizar(fornecedor);
 
                 break;
 
