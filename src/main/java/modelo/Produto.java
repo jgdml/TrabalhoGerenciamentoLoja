@@ -57,7 +57,7 @@ public class Produto implements BaseEntity{
     }
 
     public void preencher(){
-        this.nome = Input.get("Digite a descição: ");
+        this.nome = Input.get("Digite o nome: ");
         this.estoque = Input.getInt("Digite o estoque: ");
         this.preco = Input.getDouble("Digite o preço: ");
     }
