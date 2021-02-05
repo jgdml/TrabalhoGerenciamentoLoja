@@ -1,4 +1,4 @@
-package sistema;
+package infra;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

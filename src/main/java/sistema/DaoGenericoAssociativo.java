@@ -1,24 +1,48 @@
 package sistema;
 
+import infra.EMFProducer;
 import modelo.BaseEntityAssociativa;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
-    private static final EntityManager em = EMFProducer.getEmf().createEntityManager();
+
     private final Class<T> cl;
 
     public DaoGenericoAssociativo(Class<T> cl) {
         this.cl = cl;
     }
 
-    public T findId(Class<T> cl, Integer id) {
-        return em.find(cl, id);
+
+
+
+    private EntityManager getEntityManager(){
+        return EMFProducer.getEmf().createEntityManager();
+    }
+
+    private void closeEntityManager(EntityManager e){
+        if (e.isOpen()){
+            e.close();
+        }
     }
 
 
+
+
+
+    public T findId(Integer id) {
+        EntityManager em = getEntityManager();
+
+        T obj = em.find(cl, id);
+        closeEntityManager(em);
+        return obj;
+    }
+
+
+
     public void salvarOuAtualizar(T obj) {
+        EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
             if (!obj.keyExists()) {
@@ -31,6 +55,7 @@ public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
         } catch (Exception e) {
             em.getTransaction().rollback();
         }
+        closeEntityManager(em);
     }
 
 
@@ -44,9 +69,10 @@ public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
     }
 
     private List<T> getRegistros(){
-
+        EntityManager em = getEntityManager();
         List<T> resultado = em.createQuery(String.format("SELECT x FROM %s x WHERE x.status != '%s'", this.cl.getSimpleName(), Constantes.STATUS_INATIVO)).getResultList();
 
+        closeEntityManager(em);
         return resultado;
 
     }

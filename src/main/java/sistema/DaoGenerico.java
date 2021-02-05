@@ -1,24 +1,45 @@
 package sistema;
 
+import infra.EMFProducer;
 import modelo.BaseEntity;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 public class DaoGenerico<T extends BaseEntity> {
-    private static final EntityManager em = EMFProducer.getEmf().createEntityManager();
+
     private final Class<T> cl;
 
     public DaoGenerico(Class<T> cl) {
         this.cl = cl;
     }
 
-    public T findId(Class<T> cl, Integer id) {
-        return em.find(cl, id);
+
+
+    private EntityManager getEntityManager(){
+        return EMFProducer.getEmf().createEntityManager();
+    }
+
+    private void closeEntityManager(EntityManager e){
+        if (e.isOpen()){
+            e.close();
+        }
+    }
+
+
+
+    public T findId(Integer id) {
+        EntityManager em = getEntityManager();
+
+        T obj = em.find(cl, id);
+        closeEntityManager(em);
+        return obj;
     }
 
 
     public void salvarOuAtualizar(T obj) {
+        EntityManager em = getEntityManager();
+
         try {
             em.getTransaction().begin();
             if (obj.getId() == null) {
@@ -30,7 +51,9 @@ public class DaoGenerico<T extends BaseEntity> {
         } catch (Exception e) {
             em.getTransaction().rollback();
         }
+        closeEntityManager(em);
     }
+
 
 
     public void deletar(T obj) {
@@ -42,10 +65,16 @@ public class DaoGenerico<T extends BaseEntity> {
         }
     }
 
+
+
     private List<T> getRegistros(){
+        EntityManager em = getEntityManager();
 
-        List<T> resultado = em.createQuery(String.format("SELECT x FROM %s x WHERE x.status != '%s'", this.cl.getSimpleName(), Constantes.STATUS_INATIVO)).getResultList();
+        List<T> resultado = em.createQuery(
+                String.format("SELECT x FROM %s x WHERE x.status != '%s'", this.cl.getSimpleName(), Constantes.STATUS_INATIVO))
+                .getResultList();
 
+        closeEntityManager(em);
         return resultado;
 
     }
@@ -56,27 +85,21 @@ public class DaoGenerico<T extends BaseEntity> {
         System.out.println("\n==============\n"+this.cl.getSimpleName()+"s\n==============");
 
         for(int i = 0; i<lista.size(); i++){
-
             System.out.print(i+1+".   ");
-
             lista.get(i).print();
         }
     }
 
+
     public T escolher(){
-
         List<T> resultado = getRegistros();
-
         printRegistros();
 
         while(true){
-
             int in = Input.getInt(Constantes.REGISTRO_ESCOLHER);
-
             in -= 1;
 
             if(in > resultado.size()-1 || in < 0){
-
                 System.out.println(Constantes.REGISTRO_NAO_EXISTE);
             }
             else{
