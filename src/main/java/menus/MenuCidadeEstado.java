@@ -1,16 +1,18 @@
 package menus;
 
+import cadastro.PreencherCidade;
 import modelo.Cidade;
 import modelo.Estado;
 import sistema.DaoGenerico;
 import sistema.Input;
-import sistema.PreencherFk;
 
 
 public class MenuCidadeEstado {
 
-    private DaoGenerico<Cidade> daoCidade = new DaoGenerico<>(Cidade.class);
-    private DaoGenerico<Estado> daoEstado = new DaoGenerico<>(Estado.class);
+    private final DaoGenerico<Cidade> daoCidade = new DaoGenerico<>(Cidade.class);
+    private final DaoGenerico<Estado> daoEstado = new DaoGenerico<>(Estado.class);
+
+    private final PreencherCidade preencherCidade = new PreencherCidade();
 
 
     public void executar() {
@@ -39,7 +41,7 @@ public class MenuCidadeEstado {
     }
 
     private void executarMenu(final String op) {
-        Cidade c = new Cidade();
+        Cidade c;
         Estado e = new Estado();
 
         if(op.equals("0")) {
@@ -49,8 +51,7 @@ public class MenuCidadeEstado {
         switch (op) {
 
             case "1":
-                c.preencher();
-                PreencherFk.fkCidade(c);
+                c = preencherCidade.preencherTudo();
                 daoCidade.salvarOuAtualizar(c);
                 break;
 

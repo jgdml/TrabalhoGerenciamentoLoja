@@ -1,14 +1,14 @@
 package menus;
 
-import modelo.Cidade;
+import cadastro.PreencherCliente;
 import modelo.Cliente;
 import sistema.DaoGenerico;
 import sistema.Input;
-import sistema.PreencherFk;
 
 public class MenuClientes {
 
     private final DaoGenerico<Cliente> daoCliente = new DaoGenerico<>(Cliente.class);
+    private final PreencherCliente preencherCliente = new PreencherCliente();
 
     public void executar(){
         String opcao = "";
@@ -34,7 +34,7 @@ public class MenuClientes {
 
 
     private void executarMenu(final String op) {
-        Cliente c = new Cliente();
+        Cliente c;
 
         if (op.equals("0")) {
             return;
@@ -43,8 +43,7 @@ public class MenuClientes {
         switch (op) {
 
             case "1":
-                c.preencher();
-                PreencherFk.fkCliente(c);
+                c = preencherCliente.preencherTudo();
                 daoCliente.salvarOuAtualizar(c);
                 break;
 
