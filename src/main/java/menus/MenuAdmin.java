@@ -7,7 +7,7 @@ import modelo.Usuario;
 import org.hibernate.query.criteria.internal.expression.function.UpperFunction;
 import sistema.DaoGenerico;
 import sistema.Input;
-import sistema.PreencherFk;
+
 
 public class MenuAdmin {
 

@@ -1,11 +1,6 @@
 package sistema;
 
 
-import modelo.Usuario;
-
-import java.awt.*;
-import java.io.IOException;
-
 public class Menus {
 
 

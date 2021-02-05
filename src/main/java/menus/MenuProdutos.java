@@ -2,10 +2,9 @@ package menus;
 
 import cadastro.PreencherProduto;
 import modelo.Produto;
-import sistema.Constantes;
 import sistema.DaoGenerico;
 import sistema.Input;
-import sistema.PreencherFk;
+
 
 public class MenuProdutos {
 

@@ -1,6 +1,5 @@
 package modelo;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import sistema.Constantes;
 
 import javax.persistence.*;

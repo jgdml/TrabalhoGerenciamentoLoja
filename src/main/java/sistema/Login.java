@@ -1,6 +1,5 @@
 package sistema;
 
-import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import modelo.Usuario;
 
 import javax.persistence.EntityManager;

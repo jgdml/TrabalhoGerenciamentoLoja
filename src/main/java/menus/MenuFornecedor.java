@@ -1,12 +1,10 @@
 package menus;
 
 import cadastro.PreencherFornecedor;
-import modelo.Cliente;
 import modelo.Fornecedor;
-import sistema.Constantes;
 import sistema.DaoGenerico;
 import sistema.Input;
-import sistema.PreencherFk;
+
 
 public class MenuFornecedor {
 
