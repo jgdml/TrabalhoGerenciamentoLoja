@@ -110,13 +110,13 @@ public class Inserts {
 
 //==========================================================================================
 
-        VendaProduto venprod = new VendaProduto (1, prod, ven);
-        VendaProduto venprod1 = new VendaProduto (2, prod1, ven);
-
-        DaoGenericoAssociativo<VendaProduto> dvp = new DaoGenericoAssociativo<>(VendaProduto.class);
-
-        dvp.salvarOuAtualizar(venprod);
-        dvp.salvarOuAtualizar(venprod1);
+//        VendaProduto venprod = new VendaProduto (1, prod, ven);
+//        VendaProduto venprod1 = new VendaProduto (2, prod1, ven);
+//
+//        DaoGenericoAssociativo<VendaProduto> dvp = new DaoGenericoAssociativo<>(VendaProduto.class);
+//
+//        dvp.salvarOuAtualizar(venprod);
+//        dvp.salvarOuAtualizar(venprod1);
 
 ////==========================================================================================
 

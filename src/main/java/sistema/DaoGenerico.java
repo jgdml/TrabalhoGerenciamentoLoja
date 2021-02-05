@@ -26,7 +26,6 @@ public class DaoGenerico<T extends BaseEntity> {
             } else {
                 em.merge(obj);
             }
-            printRegistros();
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();
