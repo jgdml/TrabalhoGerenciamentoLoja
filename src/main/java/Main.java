@@ -16,9 +16,9 @@ public class Main {
 
         Inserts.init();
 
-        MenuAdmin menuAdmin = new MenuAdmin();
+        MenuPrincipal menuPrincipal = new MenuPrincipal(Constantes.LOGIN_ISADM);
 
-        menuAdmin.executar();
+        menuPrincipal.executarPrincipal();
 
 
     }

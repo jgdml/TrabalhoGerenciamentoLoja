@@ -1,9 +1,11 @@
 package menus;
 
+import cadastro.PreencherCompra;
 import cadastro.PreencherVenda;
 import modelo.CompraProduto;
 import modelo.VendaProduto;
 import sistema.*;
+
 
 public class MenuPrincipal {
 
@@ -14,6 +16,7 @@ public class MenuPrincipal {
     private final MenuProdutos menuProdutos = new MenuProdutos();
 
     private final PreencherVenda preencherVenda = new PreencherVenda();
+    private final PreencherCompra preencherCompra = new PreencherCompra();
     private final DaoGenericoAssociativo<VendaProduto> daoVendaProduto = new DaoGenericoAssociativo<>(VendaProduto.class);
     private final DaoGenericoAssociativo<CompraProduto> daoCompraProduto = new DaoGenericoAssociativo<>(CompraProduto.class);
 
@@ -61,13 +64,12 @@ public class MenuPrincipal {
         }
         switch (op){
             case "1":
-                VendaProduto vp = preencherVenda.preencherTudo();
-                daoVendaProduto.salvarOuAtualizar(vp);
+                VendaProduto vendaProduto = preencherVenda.preencherTudo();
+                daoVendaProduto.salvarOuAtualizar(vendaProduto);
                 break;
 
             case "2":
-                CompraProduto compraProduto = new CompraProduto();
-                PreencherFk.fkCompraProduto(compraProduto);
+                CompraProduto compraProduto = preencherCompra.preencherTudo();
                 daoCompraProduto.salvarOuAtualizar(compraProduto);
                 break;
 
