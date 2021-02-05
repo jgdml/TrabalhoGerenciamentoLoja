@@ -6,7 +6,7 @@ import sistema.*;
 
 public class MenuPrincipal {
 
-    private String isAdm;
+    private final String isAdm;
     private final MenuClientes menuClientes = new MenuClientes();
     private final MenuUtilidades menuUtilidades = new MenuUtilidades();
     private final MenuAdmin menuAdmin = new MenuAdmin();
@@ -59,14 +59,12 @@ public class MenuPrincipal {
         switch (op){
             case "1":
                 VendaProduto vp = new VendaProduto();
-                vp.preencher();
                 PreencherFk.fkVendaProduto(vp);
                 daoVendaProduto.salvarOuAtualizar(vp);
                 break;
 
             case "2":
                 CompraProduto compraProduto = new CompraProduto();
-                compraProduto.preencher();
                 PreencherFk.fkCompraProduto(compraProduto);
                 daoCompraProduto.salvarOuAtualizar(compraProduto);
                 break;

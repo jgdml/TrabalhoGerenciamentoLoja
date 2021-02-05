@@ -18,7 +18,7 @@ public class PreencherFk {
 
     private static String askTipo(String classe){
         while (true){
-            System.out.println("É obrigatorio ter um "+classe+" neste registro");
+            System.out.println("\n\nÉ obrigatorio ter um "+classe+" neste registro");
             String op = Input.get(String.format("\n1. Criar novo registro de %s \n2. Selecionar registro existente de %s\nOpção: ", classe, classe));
 
             if (op.equals("1") || op.equals("2")){
@@ -179,17 +179,21 @@ public class PreencherFk {
         vp.setVenda(v);
 
 
-        String tipo = askTipo("Produto");
-        Produto p = new Produto();
 
-        if(tipo.equals("1")){
-            p.preencher();
-            fkProduto(p);
-            daoProduto.salvarOuAtualizar(p);
-        }
-        else{
+        Produto p = daoProduto.escolher();
+        while(p.getEstoque()<0){
+            System.out.println("Escolhar um produto com estoque");
             p = daoProduto.escolher();
         }
+
+        int qntde = Input.getInt("Digite a quantidade a vender: ");
+        while(qntde > p.getEstoque()){
+            System.out.println("Não é possível vender mais do que o estoque");
+            qntde = Input.getInt("Digite a quantidade a vender: ");
+        }
+
+        p.setEstoque(p.getEstoque() - qntde);
+        vp.setQuantidade(qntde);
         vp.setProduto(p);
     }
 
@@ -218,10 +222,12 @@ public class PreencherFk {
         if(tipo.equals("1")){
             p.preencher();
             fkProduto(p);
+            p.setEstoque(p.getEstoque()+ compraProduto.getQuantidade());
             daoProduto.salvarOuAtualizar(p);
         }
         else{
             p = daoProduto.escolher();
+            p.setEstoque(p.getEstoque()+ compraProduto.getQuantidade());
         }
 
         Compra compra = new Compra();
