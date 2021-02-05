@@ -72,13 +72,13 @@ public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
 
         while(true){
 
-            int in = Input.getInt("Escolha um registro:");
+            int in = Input.getInt(Constantes.REGISTRO_ESCOLHER);
 
             in -= 1;
 
-            if(in > resultado.size() || in < 0){
+            if(in > resultado.size()-1 || in < 0){
 
-                System.out.println("Não contém registro tente novamente");
+                System.out.println(Constantes.REGISTRO_NAO_EXISTE);
             }
             else{
                 return resultado.get(in);
