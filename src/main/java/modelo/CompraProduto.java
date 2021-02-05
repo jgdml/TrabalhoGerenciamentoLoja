@@ -66,4 +66,9 @@ public class CompraProduto implements BaseEntityAssociativa {
         }
         return false;
     }
+
+    public void setProduto(Produto produto){
+        this.produto = produto;
+        this.preco = produto.getPreco() * this.quantidade;
+    }
 }

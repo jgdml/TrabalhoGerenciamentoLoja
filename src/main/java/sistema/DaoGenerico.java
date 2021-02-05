@@ -41,7 +41,6 @@ public class DaoGenerico<T extends BaseEntity> {
             salvarOuAtualizar(obj);
             printRegistros();
         }
-
     }
 
     private List<T> getRegistros(){
@@ -55,7 +54,7 @@ public class DaoGenerico<T extends BaseEntity> {
 
     public void printRegistros(){
         List<T> lista = getRegistros();
-        System.out.println("\n");
+        System.out.println("\n==============\n"+this.cl.getSimpleName()+"s\n==============");
 
         for(int i = 0; i<lista.size(); i++){
 
