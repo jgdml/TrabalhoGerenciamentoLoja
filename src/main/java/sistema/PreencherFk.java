@@ -222,21 +222,25 @@ public class PreencherFk {
         if(tipo.equals("1")){
             p.preencher();
             fkProduto(p);
-            p.setEstoque(p.getEstoque()+ compraProduto.getQuantidade());
             daoProduto.salvarOuAtualizar(p);
         }
         else{
             p = daoProduto.escolher();
-            p.setEstoque(p.getEstoque()+ compraProduto.getQuantidade());
+
         }
+
 
         Compra compra = new Compra();
         fkCompra(compra);
         daoCompra.salvarOuAtualizar(compra);
         compraProduto.setCompra(compra);
 
-
+        compraProduto.preencher();
         compraProduto.setProduto(p);
+
+        p.setEstoque(p.getEstoque()+ compraProduto.getQuantidade());
+        daoProduto.salvarOuAtualizar(p);
+
     }
 
 }
