@@ -64,7 +64,9 @@ public class Funcionario implements BaseEntity{
                 +this.getCpf()+"   "
                 +this.getCargo()+"   "
                 +this.cidade.getNome()+"   "
-                +this.usuario.getLogin());
+                +this.usuario.getLogin()+"   "
+                +(this.usuario.getIsAdm() ? "Administrador" : "Padrão")
+        );
     }
 
     public void preencher(){
