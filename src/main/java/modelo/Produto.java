@@ -47,13 +47,12 @@ public class Produto implements BaseEntity{
     }
 
     public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getEstoque()+"   "
-                +this.getPreco()+"  "
-                +this.categoria.getNome()+"   "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+        System.out.format("%-15s%-15s%-15s%-15s%-15s%n"
+                ,this.getNome()
+                ,this.getEstoque()
+                ,this.getPreco()+"  "
+                ,this.categoria.getNome()+"   "
+                ,this.getDt_atualiza());
     }
 
     public void preencher(){
