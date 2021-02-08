@@ -55,17 +55,35 @@ public class Funcionario implements BaseEntity{
         this.usuario = usuario;
     }
 
+    //prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s%n", "Nome", "Endereco", "Telefone", "Email", "Cpf", "Cargo", "Cidade", "Usuario", "Tipo");
+    }
+
     public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getEndereco()+"   "
-                +this.getTelefone()+"  "
-                +this.getEmail()+"   "
-                +this.getCpf()+"   "
-                +this.getCargo()+"   "
-                +this.cidade.getNome()+"   "
-                +this.usuario.getLogin()+"   "
-                +(this.usuario.getIsAdm() ? "Administrador" : "Padrão")
+        System.out.format("%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-15s%n"
+                ,this.getNome()
+                ,this.getEndereco()
+                ,this.getTelefone()
+                ,this.getEmail()
+                ,this.getCpf()
+                ,this.getCargo()
+                ,this.cidade.getNome()
+                ,this.usuario.getLogin()
+                ,(this.usuario.getIsAdm() ? "Administrador" : "Padrão")
+        );
+    }
+//    public void print(){
+//        System.out.println(
+//                this.getNome()+"   "
+//                +this.getEndereco()+"   "
+//                +this.getTelefone()+"  "
+//                +this.getEmail()+"   "
+//                +this.getCpf()+"   "
+//                +this.getCargo()+"   "
+//                +this.cidade.getNome()+"   "
+//                +this.usuario.getLogin()+"   "
+//                +(this.usuario.getIsAdm() ? "Administrador" : "Padrão")
         );
     }
 

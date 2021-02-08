@@ -44,15 +44,29 @@ public class Fornecedor implements BaseEntity{
         this.cidade = cidade;
     }
 
-    public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getTelefone()+"   "
-                +this.getDocumento()+"  "
-                +this.cidade.getNome()+"   "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+    //prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%-15s%n", "Nome", "Telefone", "Documento", "Cidade");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%-15s%-15s%n"
+                ,this.getNome()
+                ,this.getTelefone()
+                ,this.getDocumento()
+                ,this.cidade.getNome()
+        );
+    }
+
+//    public void print(){
+//        System.out.println(
+//                this.getNome()+"   "
+//                +this.getTelefone()+"   "
+//                +this.getDocumento()+"  "
+//                +this.cidade.getNome()+"   "
+//                +this.getStatus()+"   "
+//                +this.getDt_atualiza());
+//    }
 
     public void preencher(){
         this.nome = Input.get("Digite o nome: ");

@@ -39,12 +39,17 @@ public class Categoria implements BaseEntity{
         this.descricao = descricao;
     }
 
-    public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getDescricao()+"   "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+    //Prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%n", "Nome", "Descricao");
+    }
+
+    public void print() {
+        System.out.format("%-15s%-15s%n"
+                ,this.getNome()
+                ,this.getDescricao()
+
+        );
     }
 
     public void preencher(){

@@ -34,14 +34,16 @@ public class Cidade implements BaseEntity{
         this.estado = estado;
     }
 
-    public void preencher(){
-        this.nome = Input.get("Digite o nome da cidade: ");
+    //prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%n", "Nome", "Estado");
     }
 
     public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.estado.getNome()+"   "
-                +this.getStatus());
+        System.out.format("%-15s%-15s%n"
+                ,this.getNome()
+                ,this.estado.getNome()
+
+        );
     }
 }

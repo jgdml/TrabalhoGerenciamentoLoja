@@ -42,14 +42,28 @@ public class Usuario implements BaseEntity{
         this.isAdm = isAdm;
     }
 
-    public void print(){
-        System.out.println(
-                this.getLogin()+"   "
-                +this.getSenha()+"   "
-                +this.getIsAdm()+"   "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+    //prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%n", "login", "Senha", "IsAdm");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%-15s%n"
+                ,this.getLogin()+"   "
+                ,this.getSenha()
+                ,this.getIsAdm()
+
+        );
+    }
+
+//    public void print(){
+//        System.out.println(
+//                this.getLogin()+"   "
+//                +this.getSenha()+"   "
+//                +this.getIsAdm()+"   "
+//                +this.getStatus()+"   "
+//                +this.getDt_atualiza());
+//    }
 
     public void preencher(){
         this.login = Input.get("Digite o login: ");

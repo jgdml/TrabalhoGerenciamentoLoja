@@ -36,12 +36,25 @@ public class Estado implements BaseEntity{
         this.sigla = sigla;
     }
 
-    public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getSigla()+"   "
-                +this.getStatus());
+    //Prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%%n", "Nome", "Sigla");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%%n"
+                ,this.getNome()
+                ,this.getSigla()
+        );
+    }
+
+
+//    public void print(){
+//        System.out.println(
+//                this.getNome()+"   "
+//                +this.getSigla()+"   "
+//                +this.getStatus());
+//    }
 
     public void preencher(){
         this.nome = Input.get("Digite o nome do estado: ");

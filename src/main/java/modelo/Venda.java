@@ -44,12 +44,24 @@ public class Venda implements BaseEntity{
         this.data = data;
     }
 
-    public void print(){
-        System.out.println(
-                this.funcionario.getNome()+"   "
-                +this.cliente.getNome()+"   "
-                +this.getData()+"  "
-                +this.getStatus()+"   "
-                +this.getDt_atualiza());
+    //Prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%%n", "Nome Funcionario", "Nome Cliente", "Data", "Categoria");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%-15s%%n"
+                ,this.funcionario.getNome()
+                ,this.cliente.getNome()
+                ,this.getData()+"  "
+        );
+    }
+//    public void print(){
+//        System.out.println(
+//                this.funcionario.getNome()+"   "
+//                +this.cliente.getNome()+"   "
+//                +this.getData()+"  "
+//                +this.getStatus()+"   "
+//                +this.getDt_atualiza());
+//    }
 }

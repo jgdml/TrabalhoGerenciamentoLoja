@@ -50,15 +50,31 @@ public class Cliente implements BaseEntity{
         this.cidade = cidade;
     }
 
-    public void print(){
-        System.out.println(
-                this.getNome()+"   "
-                +this.getEndereco()+"   "
-                +this.getTelefone()+"   "
-                +this.getEmail()+"   "
-                +this.getCpf()+"   "
-                +this.cidade.getNome());
+    //Prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%-15s%-15s%-15s%n", "Nome", "Endereco", "Telefone", "Email", "Cpf", "Cidade");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%-15s%-15s%-15s%-15s%n"
+                ,this.getNome()
+                ,this.getEndereco()
+                ,this.getTelefone()
+                ,this.getEmail()
+                ,this.getCpf()
+                ,this.cidade.getNome()
+        );
+    }
+
+//    public void print(){
+//        System.out.println(
+//                this.getNome()+"   "
+//                +this.getEndereco()+"   "
+//                +this.getTelefone()+"   "
+//                +this.getEmail()+"   "
+//                +this.getCpf()+"   "
+//                +this.cidade.getNome());
+//    }
 
     public void preencher(){
         this.nome = Input.get("Digite o nome do cliente: ");

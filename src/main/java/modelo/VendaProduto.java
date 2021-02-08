@@ -42,13 +42,26 @@ public class VendaProduto implements BaseEntityAssociativa {
         this.venda = venda;
     }
 
-    public void print(){
-        System.out.println(
-                this.produto.getNome()+"  "
-                +this.getQuantidade()+"   "
-                +this.getPreco()+"   "
-                +this.venda.getData()+"   ");
+
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%-15s%n", "Nome", "Quantidade", "Preco", "Data");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%-15s%-15s%n"
+                ,this.produto.getNome()
+                ,this.getQuantidade()
+                ,this.getPreco()
+                ,this.venda.getData()
+        );
+    }
+//    public void print(){
+//        System.out.println(
+//                this.produto.getNome()+"  "
+//                +this.getQuantidade()+"   "
+//                +this.getPreco()+"   "
+//                +this.venda.getData()+"   ");
+//    }
 
     public void preencher(){
         this.quantidade = Input.getInt("Digite a quantidade: ");

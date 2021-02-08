@@ -41,11 +41,24 @@ public class Compra implements BaseEntity{
 
     }
 
-    public void print(){
-        System.out.println(
-                this.getData()+"   "
-                +this.getFornecedor()+"   "
-                +this.getStatus()+"   ");
+    //prints
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%n", "Data", "Fornecedor");
     }
+
+    public void print(){
+        System.out.format("%-15s%-15s%n"
+                ,this.getData()
+                ,this.fornecedor.getNome()
+
+        );
+    }
+
+//    public void print(){
+//        System.out.println(
+//                this.getData()+"   "
+//                +this.getFornecedor()+"   "
+//                +this.getStatus()+"   ");
+//    }
 
 }
