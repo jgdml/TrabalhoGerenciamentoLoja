@@ -14,8 +14,8 @@ Deve ser feito um software de gerenciamento de loja com:
 
 - [x] Cadastro de produtos
 - [x] Cadastro de clientes
-- [ ] Controle básico de estoque
-- [ ] Controle básico de vendas
+- [x] Controle básico de estoque
+- [x] Controle básico de vendas
 - [ ] Nada 
 
 **Programação e testes feitos com ```IntelliJ IDEA```, ```Hibernate```, ```HSQLDB```, ```SQL Power Architect```, e ```XAMPP```. Branchs e códigos gravados em repositório ```GitHub```**
