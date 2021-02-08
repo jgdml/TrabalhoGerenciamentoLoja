@@ -105,6 +105,7 @@ public class MenuPrincipal {
                 }
                 else{
                     System.out.println(Constantes.USUARIO_NAO_ADEMENE);
+                    Input.get("\nPressione enter para continuar...");
                     break;
                 }
 

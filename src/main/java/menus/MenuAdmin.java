@@ -1,16 +1,15 @@
 package menus;
 
 import cadastro.PreencherFuncionario;
-import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Usuario;
-import org.hibernate.query.criteria.internal.expression.function.UpperFunction;
 import sistema.DaoGenerico;
 import sistema.Input;
 
 
 public class MenuAdmin {
 
+    private final DaoGenerico<Usuario> daoUsuario = new DaoGenerico<>(Usuario.class);
     private final DaoGenerico<Funcionario> daoFuncionario = new DaoGenerico<>(Funcionario.class);
     private final PreencherFuncionario preencherFuncionario = new PreencherFuncionario();
 
@@ -40,6 +39,7 @@ public class MenuAdmin {
 
     private void executarMenu(final String op) {
         Funcionario funcionario;
+        Usuario usuario;
 
         if (op.equals("0")) {
             return;
@@ -71,17 +71,17 @@ public class MenuAdmin {
                 break;
 
             case "5":
-
                 funcionario = daoFuncionario.escolher();
-                funcionario.getUsuario().setIsAdm(true);
-
+                usuario = funcionario.getUsuario();
+                usuario.setIsAdm(true);
+                daoUsuario.salvarOuAtualizar(usuario);
                 break;
 
             case "6":
-
                 funcionario = daoFuncionario.escolher();
-                funcionario.getUsuario().setIsAdm(false);
-
+                usuario = funcionario.getUsuario();
+                usuario.setIsAdm(false);
+                daoUsuario.salvarOuAtualizar(usuario);
                 break;
 
             default:
