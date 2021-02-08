@@ -46,13 +46,17 @@ public class Produto implements BaseEntity{
         this.categoria = categoria;
     }
 
+    public void printLegenda(){
+        System.out.format("%-15s%-15s%-15s%-15s%n", "Nome", "Estoque", "Preco", "Categoria");
+    }
+
     public void print(){
-        System.out.format("%-15s%-15s%-15s%-15s%-15s%n"
+        System.out.format("%-15s%-15s%-15s%-15s%n"
                 ,this.getNome()
                 ,this.getEstoque()
                 ,this.getPreco()+"  "
                 ,this.categoria.getNome()+"   "
-                ,this.getDt_atualiza());
+        );
     }
 
     public void preencher(){
