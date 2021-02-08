@@ -38,11 +38,11 @@ public class Estado implements BaseEntity{
 
     //Prints
     public void printLegenda(){
-        System.out.format("%-15s%-15s%%n", "Nome", "Sigla");
+        System.out.format("%-15s%-15s%n", "Nome", "Sigla");
     }
 
     public void print(){
-        System.out.format("%-15s%-15s%%n"
+        System.out.format("%-15s%-15s%n"
                 ,this.getNome()
                 ,this.getSigla()
         );

@@ -84,8 +84,8 @@ public class Funcionario implements BaseEntity{
 //                +this.cidade.getNome()+"   "
 //                +this.usuario.getLogin()+"   "
 //                +(this.usuario.getIsAdm() ? "Administrador" : "Padrão")
-        );
-    }
+//        );
+//    }
 
     public void preencher(){
         this.nome = Input.get("Digite o nome: ");

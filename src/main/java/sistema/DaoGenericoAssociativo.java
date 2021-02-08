@@ -82,6 +82,9 @@ public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
         System.out.println("\n");
 
         for(int i = 0; i<lista.size(); i++){
+            if (i==0){
+                lista.get(i).printLegenda();
+            }
 
             System.out.print(i+1+".   ");
 

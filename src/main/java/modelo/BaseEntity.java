@@ -7,5 +7,6 @@ public interface BaseEntity {
     public void setStatus(String status);
 
     public void print();
+    public void printLegenda();
 
 }

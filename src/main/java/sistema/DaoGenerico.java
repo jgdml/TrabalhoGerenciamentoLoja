@@ -84,7 +84,12 @@ public class DaoGenerico<T extends BaseEntity> {
         List<T> lista = getRegistros();
         System.out.println("\n==============\n"+this.cl.getSimpleName()+"s\n==============");
 
+
+
         for(int i = 0; i<lista.size(); i++){
+            if (i==0){
+                lista.get(i).printLegenda();
+            }
             System.out.print(i+1+".   ");
             lista.get(i).print();
         }

@@ -46,7 +46,7 @@ public class Venda implements BaseEntity{
 
     //Prints
     public void printLegenda(){
-        System.out.format("%-15s%-15s%-15s%%n", "Nome Funcionario", "Nome Cliente", "Data", "Categoria");
+        System.out.format("%-15s%-15s%-15s%n", "Nome Funcionario", "Nome Cliente", "Data");
     }
 
     public void print(){

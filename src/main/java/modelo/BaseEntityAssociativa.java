@@ -6,4 +6,5 @@ public interface BaseEntityAssociativa {
     public String getStatus();
     public void setStatus(String status);
     public void print();
+    public void printLegenda();
 }

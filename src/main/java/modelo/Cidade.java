@@ -46,4 +46,7 @@ public class Cidade implements BaseEntity{
 
         );
     }
+    public void preencher(){
+        this.nome = Input.get("Digite o nome da cidade: ");
+    }
 }
