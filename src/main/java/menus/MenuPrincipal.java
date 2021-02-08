@@ -88,15 +88,17 @@ public class MenuPrincipal {
             case "6":
                 if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
                     menuAdmin.executar();
+                    break;
                 }
                 else{
+                    System.out.println(Constantes.USUARIO_NAO_ADEMENE);
                     break;
                 }
 
             default:
                 System.out.println("Opção inválida!");
+                Input.get("\nPressione enter para continuar...");
                 break;
         }
-        Input.get("\nPressione enter para continuar...");
     }
 }
