@@ -2,6 +2,7 @@ package menus;
 
 import cadastro.PreencherCompra;
 import cadastro.PreencherVenda;
+import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 import modelo.CompraProduto;
 import modelo.VendaProduto;
 import sistema.*;
@@ -59,9 +60,21 @@ public class MenuPrincipal {
 
     private void executarMenu(final String op){
 
-        if(op.equals("0")){
-            return;
+        try {
+            if (op.equals("0")) {
+                System.out.println("\nDeslogando");
+                for (int i = 0; i < Constantes.BRUNO_HENRIQUE.length; i++) {
+                Thread.currentThread().sleep(1000);
+                    System.out.print(Constantes.BRUNO_HENRIQUE[i]);
+                }
+                Thread.currentThread().sleep(1000);
+                System.out.println("Deslogado com Sucesso!");
+                return;
+            }
+        }catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
         switch (op){
             case "1":
                 VendaProduto vendaProduto = preencherVenda.preencherTudo();
@@ -88,15 +101,17 @@ public class MenuPrincipal {
             case "6":
                 if(this.isAdm.equals(Constantes.LOGIN_ISADM)){
                     menuAdmin.executar();
+                    break;
                 }
                 else{
+                    System.out.println(Constantes.USUARIO_NAO_ADEMENE);
                     break;
                 }
 
             default:
                 System.out.println("Opção inválida!");
+                Input.get("\nPressione enter para continuar...");
                 break;
         }
-        Input.get("\nPressione enter para continuar...");
     }
 }

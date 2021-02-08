@@ -50,7 +50,6 @@ public class DaoGenericoAssociativo<T extends BaseEntityAssociativa> {
             } else {
                 em.merge(obj);
             }
-            printRegistros();
             em.getTransaction().commit();
         } catch (Exception e) {
             em.getTransaction().rollback();

@@ -1,10 +1,10 @@
 import menus.*;
 import modelo.Categoria;
 import modelo.Produto;
+import sistema.App;
 import sistema.Constantes;
 import sistema.DaoGenerico;
 
-import sistema.Menus;
 import testes.Inserts;
 
 import java.awt.*;
@@ -16,10 +16,9 @@ public class Main {
 
         Inserts.init();
 
-        MenuPrincipal menuPrincipal = new MenuPrincipal(Constantes.LOGIN_ISADM);
+        App app = new App();
 
-        menuPrincipal.executarPrincipal();
-
+        app.init();
 
     }
 }
